@@ -7,4 +7,10 @@ class FoodRemoteRepository implements FoodGateway {
     // TODO: implement getFoodFavority
     throw UnimplementedError();
   }
+
+  @override
+  List<Food> getFood() {
+    // TODO: implement getFood
+    throw UnimplementedError();
+  }
 }

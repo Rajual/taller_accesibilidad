@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taller_accesibilidad/infraestructure/repositories/food/food_local_repository.dart';
-import 'package:taller_accesibilidad/infraestructure/services/local_storage.dart';
-import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_model.dart';
-import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
+import 'package:taller_accesibilidad/ui/pages/home_page.dart/home_page_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,15 +9,37 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: DetailPageView(
-            model: DetailPageModel(
-                foodGateway: FoodLocalRepository(LocalStorage()))),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Taller Accesabilidad',
+        home: HomePage(
+          searchTextEditingController: TextEditingController(),
+          bannerImages: const [
+            'assets/images/burger.png',
+            'assets/images/cake.png',
+            'assets/images/cookies.png'
+          ],
+          foodForUser: const [
+            {
+              'name': 'Spicy Wings',
+              'price': '\$24.00',
+              'urlPhoto': 'assets/images/spicy_wings.png'
+            },
+            {
+              'name': 'BBQ Ribs',
+              'price': '\$24.00',
+              'urlPhoto': 'assets/images/bbq_ribs.png'
+            },
+            {
+              'name': 'Curries',
+              'price': '\$24.00',
+              'urlPhoto': 'assets/images/curry.png'
+            },
+            {
+              'name': 'Salads',
+              'price': '\$24.00',
+              'urlPhoto': 'assets/images/salad_main.png'
+            },
+          ],
+        ));
   }
 }

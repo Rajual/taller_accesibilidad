@@ -13,6 +13,7 @@ class BannerRepositoryLocal implements BannerGateway {
     data.forEach((key, value) {
       result.add(Banner(
         name: key,
+        urlPhoto: key,
       ));
     });
     return result;
