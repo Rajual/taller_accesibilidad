@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taller_accesibilidad/ui/pages/home_page.dart/home_page_view.dart';
+import 'package:taller_accesibilidad/ui/pages/home_page/home_page_view.dart';
 
 void main() => runApp(const MyApp());
 
