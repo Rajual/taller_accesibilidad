@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_model.dart';
+import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
 import '../widgets/food_category_row_widget.dart';
 import 'interfaces.dart';
 
@@ -113,54 +115,61 @@ class _HomePageState extends State<HomePage> implements View {
                     crossAxisCount: 2,
                     mainAxisSpacing: MediaQuery.of(context).size.height * 0.02),
                 itemBuilder: (context, index) {
-                  return Stack(
-                    children: [
-                      Image.asset(
-                        widget.foodForUser[index]['urlPhoto'],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.035,
-                            right: MediaQuery.of(context).size.width * 0.06,
-                            bottom: MediaQuery.of(context).size.height * 0.01),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '${widget.foodForUser[index]['name']}',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .fontSize),
-                                ),
-                                Text(
-                                  '${widget.foodForUser[index]['price']}',
-                                  style: TextStyle(
-                                      color: const Color(0xFFF4AA4A),
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: Theme.of(context)
-                                          .textTheme
-                                          .titleMedium!
-                                          .fontSize),
-                                )
-                              ],
-                            ),
-                            const CustomItemIcon(
-                              iconSize: 0.022,
-                              imageAssetIcon: 'assets/images/carrito.png',
-                              backgroundItemColor: Color(0xFFF4AA4A),
-                            ),
-                          ],
+                  return GestureDetector(
+                    onTap: () {
+                      goToDetailsPage(
+                          context, widget.foodForUser[index]['name']);
+                    },
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                          widget.foodForUser[index]['urlPhoto'],
                         ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.035,
+                              right: MediaQuery.of(context).size.width * 0.06,
+                              bottom:
+                                  MediaQuery.of(context).size.height * 0.01),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${widget.foodForUser[index]['name']}',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .fontSize),
+                                  ),
+                                  Text(
+                                    '${widget.foodForUser[index]['price']}',
+                                    style: TextStyle(
+                                        color: const Color(0xFFF4AA4A),
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .fontSize),
+                                  )
+                                ],
+                              ),
+                              const CustomItemIcon(
+                                iconSize: 0.022,
+                                imageAssetIcon: 'assets/images/carrito.png',
+                                backgroundItemColor: Color(0xFFF4AA4A),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   );
                 },
               ),
@@ -183,5 +192,13 @@ class _HomePageState extends State<HomePage> implements View {
             shape: BoxShape.circle),
       );
     });
+  }
+
+  @override
+  void goToDetailsPage(BuildContext context, String detailFoodName) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => DetailPageView(
+              foodName: detailFoodName,
+            )));
   }
 }

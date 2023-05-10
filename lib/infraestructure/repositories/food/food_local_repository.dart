@@ -10,7 +10,7 @@ class FoodLocalRepository implements FoodGateway {
     final Map<String, dynamic> data = localStorage.getData();
     final List<Food> result = [];
     data.forEach((key, value) {
-      result.add(Food(name: key, favorite: value is bool));
+      // result.add(Food(name: key, favorite: value is bool));
     });
     return result;
   }
