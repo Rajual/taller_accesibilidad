@@ -26,6 +26,8 @@ class _HomePageState extends State<HomePage> implements View {
   int activePage = 0;
   @override
   Widget build(BuildContext context) {
+    final languaje =
+        MyAppLocalizations.of(context)?.getJsonTranslate().homeModel;
     return Scaffold(
         backgroundColor: Colors.white,
         body: ListView(
@@ -33,13 +35,12 @@ class _HomePageState extends State<HomePage> implements View {
               vertical: MediaQuery.of(context).size.height * 0.1,
               horizontal: MediaQuery.of(context).size.width * 0.05),
           children: [
-            Text(
-              MyAppLocalizations.of(context)
-                      ?.getJsonTranslate()
-                      .homeModel
-                      .title ??
-                  '',
-              style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
+            Semantics(
+              label: languaje?.title.semantic ?? '',
+              child: Text(
+                languaje?.title.label ?? '',
+                style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
+              ),
             ),
             const Text("Let's grab your food!"),
             SizedBox(

@@ -1,6 +1,6 @@
 {
     "home": {
-        "title": "Chef Burguer",
+        "title": {"label":"Chef Burguer","semantic":"Hello Wold!"},
         "sub_title": "Let’s grab your food!"
     }
 }
