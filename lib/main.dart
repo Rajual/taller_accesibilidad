@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/config/localizations.dart';
 import 'package:taller_accesibilidad/ui/pages/home_page/home_page_view.dart';
 
 void main() => runApp(const MyApp());
@@ -9,6 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: const [
+          MyAppLocalizations.delegate,
+        ],
         debugShowCheckedModeBanner: false,
         title: 'Taller Accesabilidad',
         home: HomePage(
