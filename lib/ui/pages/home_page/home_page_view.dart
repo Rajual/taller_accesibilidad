@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/config/localizations.dart';
 import '../widgets/food_category_row_widget.dart';
 import 'interfaces.dart';
 
@@ -30,8 +31,12 @@ class _HomePageState extends State<HomePage> implements View {
               vertical: MediaQuery.of(context).size.height * 0.1,
               horizontal: MediaQuery.of(context).size.width * 0.05),
           children: [
-            const Text(
-              'Chef Burger',
+            Text(
+              MyAppLocalizations.of(context)
+                      ?.getJsonTranslate()
+                      .homeModel
+                      .title ??
+                  '',
               style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
             ),
             const Text("Let's grab your food!"),
