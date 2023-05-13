@@ -59,27 +59,38 @@ class CustomBottomNavigationBar extends StatelessWidget {
 }
 
 class CustomItemIcon extends StatelessWidget {
-  final String imageAssetIcon;
+  final String? imageAssetIcon;
   final double iconSize;
   final Color? backgroundItemColor;
+  final IconData? icon;
+  final double? padding;
+  final Color? iconColor;
   const CustomItemIcon({
     super.key,
-    required this.imageAssetIcon,
+    this.imageAssetIcon,
     required this.iconSize,
     this.backgroundItemColor,
+    this.icon,
+    this.padding,
+    this.iconColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(9.0),
+      padding: EdgeInsets.all(padding ?? 9.0),
       decoration: BoxDecoration(
           color: backgroundItemColor ?? const Color.fromARGB(0, 255, 255, 255),
           borderRadius: BorderRadius.circular(30)),
-      child: Image.asset(
-        imageAssetIcon,
-        height: MediaQuery.of(context).size.height * iconSize,
-      ),
+      child: imageAssetIcon != null
+          ? Image.asset(
+              imageAssetIcon!,
+              height: MediaQuery.of(context).size.height * iconSize,
+            )
+          : Icon(
+              icon ?? Icons.check,
+              color: iconColor ?? Colors.black,
+            ),
     );
   }
 }

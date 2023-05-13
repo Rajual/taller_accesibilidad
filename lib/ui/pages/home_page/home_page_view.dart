@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> implements View {
           children: [
             Semantics(
               label: languaje?.title.semantic ?? '',
+              excludeSemantics: true,
               child: Text(
                 languaje?.title.label ?? '',
                 style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
