@@ -2,20 +2,22 @@ class Food {
   const Food({
     required this.name,
     required this.imageUrl,
-    required this.time,
-    required this.quantity,
-    required this.calories,
-    required this.description,
-    required this.ingredients,
+    this.time,
+    this.quantity,
+    this.calories,
+    this.description,
+    this.price,
+    this.ingredients,
     this.favorite = false,
   });
   final String name;
   final String imageUrl;
-  final String time;
-  final int quantity;
-  final int calories;
-  final String description;
-  final List<Ingredients> ingredients;
+  final String? time;
+  final int? quantity;
+  final int? calories;
+  final String? description;
+  final String? price;
+  final List<Ingredients>? ingredients;
   final bool favorite;
 
   factory Food.fromJson(Map<String, dynamic> jsonFood) {
@@ -26,7 +28,9 @@ class Food {
       quantity: jsonFood['quantity'],
       calories: jsonFood['calories'],
       description: jsonFood['description'],
-      ingredients: Ingredients.fromListJson(List.from(jsonFood['ingredients'])),
+      price: jsonFood['price'],
+      ingredients:
+          Ingredients.fromListJson(List.from(jsonFood['ingredients'] ?? [])),
     );
   }
 }

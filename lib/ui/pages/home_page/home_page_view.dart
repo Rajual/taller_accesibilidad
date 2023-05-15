@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
 import 'package:taller_accesibilidad/config/localizations.dart';
+import '../../../domain/food/food.dart';
 import '../widgets/food_category_row_widget.dart';
 import 'interfaces.dart';
 
@@ -23,6 +24,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> implements View {
+  final List<Food> foods = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    for (var element in widget.foodForUser) {
+      foods.add(Food.fromJson(element));
+    }
+  }
+
   int activePage = 0;
   @override
   Widget build(BuildContext context) {
@@ -115,68 +127,19 @@ class _HomePageState extends State<HomePage> implements View {
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.5,
               child: GridView.builder(
-                itemCount: widget.foodForUser.length,
+                itemCount: foods.length,
                 padding: EdgeInsets.symmetric(
                     vertical: MediaQuery.of(context).size.height * 0.02),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: MediaQuery.of(context).size.height * 0.02),
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
+                  return FoodGridWidget(
+                    callbackNavigation: () {
                       goToDetailsPage(
                           context, widget.foodForUser[index]['name']);
                     },
-                    child: Stack(
-                      children: [
-                        Image.asset(
-                          widget.foodForUser[index]['urlPhoto'],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.035,
-                              right: MediaQuery.of(context).size.width * 0.06,
-                              bottom:
-                                  MediaQuery.of(context).size.height * 0.01),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '${widget.foodForUser[index]['name']}',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: Theme.of(context)
-                                            .textTheme
-                                            .titleSmall!
-                                            .fontSize),
-                                  ),
-                                  Text(
-                                    '${widget.foodForUser[index]['price']}',
-                                    style: TextStyle(
-                                        color: const Color(0xFFF4AA4A),
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium!
-                                            .fontSize),
-                                  )
-                                ],
-                              ),
-                              const CustomItemIcon(
-                                iconSize: 0.022,
-                                imageAssetIcon: 'assets/images/carrito.png',
-                                backgroundItemColor: Color(0xFFF4AA4A),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                    food: foods[index],
                   );
                 },
               ),
@@ -207,5 +170,71 @@ class _HomePageState extends State<HomePage> implements View {
         builder: (BuildContext context) => DetailPageView(
               foodName: detailFoodName,
             )));
+  }
+}
+
+class FoodGridWidget extends StatelessWidget {
+  const FoodGridWidget(
+      {super.key, required this.food, required this.callbackNavigation});
+  final Food food;
+  final VoidCallback callbackNavigation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: '${food.name} ${food.price}',
+      child: GestureDetector(
+        onTap: () => callbackNavigation,
+        child: Stack(
+          children: [
+            Image.asset(
+              food.imageUrl,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.035,
+                  right: MediaQuery.of(context).size.width * 0.06,
+                  bottom: MediaQuery.of(context).size.height * 0.01),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        food.name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .fontSize),
+                      ),
+                      Text(
+                        '${food.price}',
+                        style: TextStyle(
+                            color: const Color(0xFFF4AA4A),
+                            fontWeight: FontWeight.w700,
+                            fontSize: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .fontSize),
+                      )
+                    ],
+                  ),
+                  const CustomItemIcon(
+                    iconSize: 0.022,
+                    imageAssetIcon: 'assets/images/carrito.png',
+                    backgroundItemColor: Color(0xFFF4AA4A),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
