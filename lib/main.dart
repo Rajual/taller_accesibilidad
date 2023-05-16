@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/config/localizations.dart';
 import 'package:taller_accesibilidad/ui/pages/home_page/home_page_view.dart';
 
 void main() => runApp(const MyApp());
@@ -9,6 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: const [
+          MyAppLocalizations.delegate,
+        ],
         debugShowCheckedModeBanner: false,
         title: 'Taller Accesabilidad',
         home: HomePage(
@@ -22,22 +26,22 @@ class MyApp extends StatelessWidget {
             {
               'name': 'Spicy Wings',
               'price': '\$24.00',
-              'urlPhoto': 'assets/images/spicy_wings.png'
+              'image': 'assets/images/spicy_wings.png'
             },
             {
               'name': 'BBQ Ribs',
               'price': '\$24.00',
-              'urlPhoto': 'assets/images/bbq_ribs.png'
+              'image': 'assets/images/bbq_ribs.png'
             },
             {
               'name': 'Curries',
               'price': '\$24.00',
-              'urlPhoto': 'assets/images/curry.png'
+              'image': 'assets/images/curry.png'
             },
             {
               'name': 'Salads',
               'price': '\$24.00',
-              'urlPhoto': 'assets/images/salad_main.png'
+              'image': 'assets/images/salad_main.png'
             },
           ],
         ));

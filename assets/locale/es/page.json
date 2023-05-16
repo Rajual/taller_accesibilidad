@@ -1,0 +1,6 @@
+{
+  "home": {
+    "title": {"label":"Chef Hamburguesa","semantic":"Hola Mundo!"},
+    "sub_title": {"label":"Ven por tu comida", "semantic": "Ven por tu comida"}
+  }
+}
