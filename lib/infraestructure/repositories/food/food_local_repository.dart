@@ -6,12 +6,13 @@ class FoodLocalRepository implements FoodGateway {
   const FoodLocalRepository(this.localStorage);
   final LocalStorage localStorage;
   @override
-  List<Food> getFood() {
-    final Map<String, dynamic> data = localStorage.getData();
-    final List<Food> result = [];
+  Future<List<Food>> getFood() async {
+    final List<Food> foods = [];
+    final Map<String, dynamic> data =
+        await localStorage.getData('assets/foods.json');
     data.forEach((key, value) {
-      // result.add(Food(name: key, favorite: value is bool));
+      foods.add(Food.fromJson(value));
     });
-    return result;
+    return foods;
   }
 }

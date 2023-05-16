@@ -9,7 +9,7 @@ class FoodRemoteRepository implements FoodGateway {
   }
 
   @override
-  List<Food> getFood() {
+  Future<List<Food>> getFood() {
     // TODO: implement getFood
     throw UnimplementedError();
   }

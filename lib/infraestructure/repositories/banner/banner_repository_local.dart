@@ -7,8 +7,8 @@ class BannerRepositoryLocal implements BannerGateway {
   const BannerRepositoryLocal(this.localStorage);
   final LocalStorage localStorage;
   @override
-  List<Banner> getBanners() {
-    final Map<String, dynamic> data = localStorage.getData();
+  Future<List<Banner>> getBanners() async {
+    final Map<String, dynamic> data = await localStorage.getData('banner');
     final List<Banner> result = [];
     data.forEach((key, value) {
       result.add(Banner(

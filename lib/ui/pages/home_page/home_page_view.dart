@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
 import 'package:taller_accesibilidad/config/localizations.dart';
+import 'package:taller_accesibilidad/ui/pages/home_page/home_page_presenter.dart';
 import '../../../domain/food/food.dart';
 import '../../widgets/custom_bottom_navigation_bar.dart';
 import '../../widgets/custom_item_icon.dart';
@@ -11,28 +12,24 @@ import 'interfaces.dart';
 class HomePage extends StatefulWidget {
   final TextEditingController searchTextEditingController;
   final List<String> bannerImages;
-  final List<Map<String, dynamic>> foodForUser;
-
+  final Model model;
   const HomePage(
       {super.key,
       required this.searchTextEditingController,
       required this.bannerImages,
-      required this.foodForUser});
+      required this.model});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> implements View {
-  final List<Food> foods = [];
-
+  late final Widget myfoods;
+  late final Presenter _presenter;
   @override
   void initState() {
     super.initState();
-
-    for (var element in widget.foodForUser) {
-      foods.add(Food.fromJson(element));
-    }
+    _presenter = HomePagePresenter(view: this, model: widget.model);
   }
 
   int activePage = 0;
@@ -126,20 +123,28 @@ class _HomePageState extends State<HomePage> implements View {
             SizedBox(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.5,
-              child: GridView.builder(
-                itemCount: foods.length,
-                padding: EdgeInsets.symmetric(
-                    vertical: MediaQuery.of(context).size.height * 0.02),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: MediaQuery.of(context).size.height * 0.02),
-                itemBuilder: (context, index) {
-                  return FoodGridWidget(
-                    callbackNavigation: () {
-                      goToDetailsPage(
-                          context, widget.foodForUser[index]['name']);
+              child: FutureBuilder<List<Food>>(
+                future: _presenter.getFoodForYou(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return CircularProgressIndicator();
+                  }
+                  return GridView.builder(
+                    itemCount: snapshot.data?.length,
+                    padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.height * 0.02),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing:
+                            MediaQuery.of(context).size.height * 0.02),
+                    itemBuilder: (context, index) {
+                      return FoodGridWidget(
+                        callbackNavigation: () {
+                          goToDetailsPage(context, snapshot.data![index].name);
+                        },
+                        food: snapshot.data![index],
+                      );
                     },
-                    food: foods[index],
                   );
                 },
               ),
@@ -170,6 +175,11 @@ class _HomePageState extends State<HomePage> implements View {
         builder: (BuildContext context) => DetailPageView(
               foodName: detailFoodName,
             )));
+  }
+
+  @override
+  void showFoodForYou(List<Food> foodForYou) {
+    print('object');
   }
 }
 

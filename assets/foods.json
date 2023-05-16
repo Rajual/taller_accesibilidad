@@ -1,0 +1,22 @@
+{"foods":[
+    {
+      "name": "Spicy Wings",
+      "price": "$24.00",
+      "image": "assets/images/spicy_wings.png"
+    },
+    {
+      "name": "BBQ Ribs",
+      "price": "$24.00",
+      "image": "assets/images/bbq_ribs.png"
+    },
+    {
+      "name": "Curries",
+      "price": "$24.00",
+      "image": "assets/images/curry.png"
+    },
+    {
+      "name": "Salads",
+      "price": "$24.00",
+      "image": "assets/images/salad_main.png"
+    }
+  ]}
