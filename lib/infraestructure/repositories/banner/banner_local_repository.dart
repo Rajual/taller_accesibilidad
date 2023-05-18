@@ -7,15 +7,14 @@ class BannerRepositoryLocal implements BannerGateway {
   const BannerRepositoryLocal(this.localStorage);
   final LocalStorage localStorage;
   @override
-  Future<List<Banner>> getBanners() async {
-    final Map<String, dynamic> data = await localStorage.getData('banner');
-    final List<Banner> result = [];
-    data.forEach((key, value) {
-      result.add(Banner(
-        name: key,
-        urlPhoto: key,
-      ));
-    });
-    return result;
+  Future<List<BannerModel>> getBanners() async {
+    final List<BannerModel> banners = [];
+    final Map<String, dynamic> data =
+        await localStorage.getData('assets/banner.json');
+
+    for (var element in data['banners']) {
+      banners.add(BannerModel.fromJson(element));
+    }
+    return banners;
   }
 }

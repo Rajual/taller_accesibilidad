@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/domain/banner/banner.dart';
 
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
 import 'package:taller_accesibilidad/config/localizations.dart';
@@ -11,12 +12,10 @@ import 'interfaces.dart';
 
 class HomePage extends StatefulWidget {
   final TextEditingController searchTextEditingController;
-  final List<String> bannerImages;
   final Model model;
   const HomePage(
       {super.key,
       required this.searchTextEditingController,
-      required this.bannerImages,
       required this.model});
 
   @override
@@ -49,41 +48,53 @@ class _HomePageState extends State<HomePage> implements View {
               excludeSemantics: true,
               child: Text(
                 languaje?.title.label ?? '',
-                style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w700, height: 2.5),
               ),
             ),
             const Text("Let's grab your food!"),
             SizedBox(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.2,
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    itemCount: widget.bannerImages.length,
-                    pageSnapping: true,
-                    onPageChanged: (value) {
-                      setState(() {
-                        activePage = value;
-                      });
-                    },
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.01),
-                        child: Image.asset(widget.bannerImages[index]),
-                      );
-                    },
-                  ),
-                  Positioned(
-                    bottom: MediaQuery.of(context).size.height * 0.02,
-                    left: MediaQuery.of(context).size.width * 0.39,
-                    child: Row(
-                      children:
-                          indicators(widget.bannerImages.length, activePage),
-                    ),
-                  ),
-                ],
+              child: FutureBuilder(
+                future: _presenter.getBanners(),
+                builder:
+                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.hasData) {
+                    return Stack(
+                      children: [
+                        PageView.builder(
+                          itemCount: snapshot.data.length,
+                          pageSnapping: true,
+                          onPageChanged: (value) {
+                            setState(() {
+                              activePage = value;
+                              getBanners(context);
+                            });
+                          },
+                          itemBuilder: (context, index) {
+                            return Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.01),
+                              child: Image.asset(snapshot.data[index].urlPhoto),
+                            );
+                          },
+                        ),
+                        Positioned(
+                          bottom: MediaQuery.of(context).size.height * 0.02,
+                          left: MediaQuery.of(context).size.width * 0.39,
+                          child: Row(
+                            children:
+                                indicators(snapshot.data.length, activePage),
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                },
               ),
             ),
             Container(
@@ -105,7 +116,6 @@ class _HomePageState extends State<HomePage> implements View {
               'Food Category',
               style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
             ),
-            //TODO: refactor to consume data from the json
             const FoodCategoryRowWidget(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,7 +137,7 @@ class _HomePageState extends State<HomePage> implements View {
                 future: _presenter.getFoodForYou(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   }
                   return GridView.builder(
                     itemCount: snapshot.data?.length,
@@ -178,8 +188,14 @@ class _HomePageState extends State<HomePage> implements View {
   }
 
   @override
+  void getBanners(BuildContext context) async {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('Banner dragged')));
+  }
+
+  @override
   void showFoodForYou(List<Food> foodForYou) {
-    print('object');
+    // TODO: implement showFoodForYou
   }
 }
 

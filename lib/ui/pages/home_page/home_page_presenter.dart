@@ -1,3 +1,4 @@
+import 'package:taller_accesibilidad/domain/banner/banner.dart';
 import 'package:taller_accesibilidad/ui/pages/home_page/interfaces.dart';
 
 import '../../../domain/food/food.dart';
@@ -17,5 +18,10 @@ class HomePagePresenter implements Presenter {
     }
     _view.showFoodForYou(foods);
     return foods;
+  }
+
+  @override
+  Future<List<BannerModel>> getBanners() async {
+    return await _model.banners;
   }
 }

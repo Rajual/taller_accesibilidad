@@ -1,0 +1,5 @@
+{ 
+ "banners":   [{"name":"burger","urlPhoto":"assets/images/burger.png"},
+   {"name":"cake", "urlPhoto":"assets/images/cake.png"},
+    {"name":"cookies", "urlPhoto": "assets/images/cookies.png"}
+  ]}

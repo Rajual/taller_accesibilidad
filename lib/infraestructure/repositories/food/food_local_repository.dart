@@ -10,9 +10,10 @@ class FoodLocalRepository implements FoodGateway {
     final List<Food> foods = [];
     final Map<String, dynamic> data =
         await localStorage.getData('assets/foods.json');
-    data.forEach((key, value) {
-      foods.add(Food.fromJson(value));
-    });
+
+    for (var element in data['foods']) {
+      foods.add(Food.fromJson(element));
+    }
     return foods;
   }
 }
