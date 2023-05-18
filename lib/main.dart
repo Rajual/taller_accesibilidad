@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Taller Accesabilidad',
         home: HomePage(
-          searchTextEditingController: TextEditingController(),
           model: HomePageModel(
               foodGateway: FoodLocalRepository(LocalStorage()),
               bannerGateway: BannerRepositoryLocal(LocalStorage())),

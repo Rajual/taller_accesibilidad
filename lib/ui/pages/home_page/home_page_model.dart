@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:taller_accesibilidad/domain/banner/banner.dart';
 import 'package:taller_accesibilidad/domain/food/food.dart';
 import 'package:taller_accesibilidad/ui/pages/home_page/interfaces.dart';
@@ -9,7 +10,8 @@ class HomePageModel implements Model {
   HomePageModel({required this.foodGateway, required this.bannerGateway});
   final FoodGateway foodGateway;
   final BannerGateway bannerGateway;
-
+  final TextEditingController searchTextEditingController =
+      TextEditingController();
   @override
   Future<List<Food>> get foods => foodGateway.getFood();
 

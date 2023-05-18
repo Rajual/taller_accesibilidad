@@ -16,4 +16,5 @@ abstract class Presenter {
 abstract class Model {
   Future<List<Food>> get foods;
   Future<List<BannerModel>> get banners;
+  TextEditingController get searchTextEditingController;
 }
