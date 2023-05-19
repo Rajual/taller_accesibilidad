@@ -9,11 +9,6 @@ class DetailPagePresenter implements Presenter {
   });
   final Model model;
   final View view;
-  // @override
-  // void showFoodFavorite() {
-  //   view.showFoodFavorite(
-  //       model.getFoodsFavorite().map((e) => Text(e.name)).toList());
-  // }
 
   @override
   Future<Food> initDetailFood(String foodName) async {

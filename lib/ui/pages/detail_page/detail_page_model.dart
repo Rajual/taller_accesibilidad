@@ -7,14 +7,6 @@ import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
 
 class DetailPageModel implements Model {
   const DetailPageModel();
-  // final FoodGateway foodGateway;
-  // @override
-  // List<Food> getFoodsFavorite() {
-  //   return foodGateway
-  //       .getFood()
-  //       .where((element) => element.favorite == true)
-  //       .toList();
-  // }
 
   @override
   Future<Food> getDetailFood(String foodName) async {

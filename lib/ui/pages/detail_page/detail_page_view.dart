@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_model.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_presenter.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
+import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
 
 import '../../../domain/food/food.dart';
 import '../../widgets/custom_item_icon.dart';
@@ -50,8 +51,8 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                   snapshot.data.imageUrl,
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
-                Text(
-                  snapshot.data.name,
+                LabelWidget(
+                  label: snapshot.data.name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -60,8 +61,8 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                           Theme.of(context).textTheme.headlineLarge!.fontSize,
                       letterSpacing: -2.5),
                 ),
-                const Text(
-                  'Cooking Healthy for Radiant Health',
+                const LabelWidget(
+                  label: 'Cooking Healthy for Radiant Health',
                   style: TextStyle(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
@@ -108,23 +109,23 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Description',
+                      const LabelWidget(
+                        label: 'Description',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
                             letterSpacing: -0.67),
                       ),
-                      Text(
-                        snapshot.data.description,
+                      LabelWidget(
+                        label: snapshot.data.description,
                         style: const TextStyle(
                           fontSize: 13,
                           letterSpacing: -0.67,
                           color: Color(0xFFB6B6B6),
                         ),
                       ),
-                      const Text(
-                        'Ingredients',
+                      const LabelWidget(
+                        label: 'Ingredients',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
@@ -145,31 +146,14 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                                   borderRadius: BorderRadius.circular(50),
                                 ),
                               ),
-                              Text(
-                                '${snapshot.data.ingredients[index].quantity} ${snapshot.data.ingredients[index].unitMeasure} ${snapshot.data.ingredients[index].name}',
+                              LabelWidget(
+                                label:
+                                    '${snapshot.data.ingredients[index].quantity} ${snapshot.data.ingredients[index].unitMeasure} ${snapshot.data.ingredients[index].name}',
                                 style: const TextStyle(
                                     color: Color(0xFFB6B6B6),
                                     letterSpacing: -0.67),
                               ),
                             ]);
-                            // return SizedBox(
-                            //   width: 500.0,
-                            //   height: 200.0,
-                            //   child: ListTile(
-                            //     trailing: Container(
-                            //       decoration: BoxDecoration(
-                            //         color: const Color(0xFFEA4F46),
-                            //         borderRadius: BorderRadius.circular(50),
-                            //       ),
-                            //     ),
-                            //     title: Text(
-                            //       '${snapshot.data.ingredients[index].quantity} ${snapshot.data.ingredients[index].unitMeasure} ${snapshot.data.ingredients[index].name}',
-                            //       style: const TextStyle(
-                            //           color: Color(0xFFB6B6B6),
-                            //           letterSpacing: -0.67),
-                            //     ),
-                            //   ),
-                            // );
                           },
                         ),
                       ),
@@ -190,11 +174,6 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
   void showDetail(Food detailFood) {
     currentFood = detailFood;
   }
-
-  // @override
-  // void showFoodFavorite(List<Widget> food) {
-  //   foodFavorite = food;
-  // }
 }
 
 class FoodDescriptionRowWidget extends StatelessWidget {
@@ -220,8 +199,8 @@ class FoodDescriptionRowWidget extends StatelessWidget {
             iconSize: 0.016,
           ),
         ),
-        Text(
-          nameItem,
+        LabelWidget(
+          label: nameItem,
           style: const TextStyle(
               color: Color(0xFFB6B6B6), fontSize: 12, letterSpacing: -0.31),
         ),

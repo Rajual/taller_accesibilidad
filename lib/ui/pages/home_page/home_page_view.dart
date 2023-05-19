@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:taller_accesibilidad/domain/banner/banner.dart';
-import 'package:taller_accesibilidad/ui/models/locale_model.dart';
-
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
 import 'package:taller_accesibilidad/config/localizations.dart';
 import 'package:taller_accesibilidad/ui/pages/home_page/home_page_presenter.dart';
@@ -9,6 +7,7 @@ import '../../../domain/food/food.dart';
 import '../../widgets/custom_bottom_navigation_bar.dart';
 import '../../widgets/custom_item_icon.dart';
 import '../../widgets/food_category_row_widget.dart';
+import '../../widgets/label_widget.dart';
 import 'interfaces.dart';
 
 class HomePage extends StatefulWidget {
@@ -109,31 +108,6 @@ class _HomePageState extends State<HomePage> implements View {
   @override
   void showFoodForYou(List<Food> foodForYou) {
     // TODO: implement showFoodForYou
-  }
-}
-
-class LabelWidget extends StatelessWidget {
-  const LabelWidget({
-    super.key,
-    required this.label,
-    this.labelSemantic,
-    this.style,
-  });
-
-  final String label;
-  final String? labelSemantic;
-  final TextStyle? style;
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      label: labelSemantic ?? label,
-      excludeSemantics: true,
-      child: Text(
-        label,
-        style: style,
-      ),
-    );
   }
 }
 
