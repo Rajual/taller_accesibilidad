@@ -30,23 +30,20 @@
       "label":"Cocina Sana para una Salud Radiante",
       "semantic":"Cocina sana para una salud radiante"
     },
-    "icons":[
-      {
-        "icon_name":"time",
+    "icons":{
+      "time": {
         "url_image":"assets/images/clock_icon.png",
         "semantic":"Tiempo de cocción"
       },
-      {
-        "icon_name":"quantity",
+      "quantity": {
         "url_image":"assets/images/fork_icon.png",
         "semantic":"Cantidad de personas"
       },
-      {
-        "icon_name":"calories",
+      "calories": {
         "url_image":"assets/images/bolt_icon.png",
         "semantic":"Valor nutricional"
       }
-    ],
+  },
     "description":{
       "label":"Descripcion",
       "semantic":"Descripción del platillo"

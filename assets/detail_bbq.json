@@ -1,45 +1,55 @@
 {
-    "name" : "BBQ Ribs",
-    "image" : "assets/images/bbq_ribs_details.png",
-    "time" : "45 mins",
-    "quantity": 2,
-    "calories":774,
-    "description" : "BBQ ribs are a savory and smoky American dish that features pork baby back ribs coated in a delicious blend of spices and slow-cooked until tender in the oven.",
-    "ingredients":[
-        {"ingredient_name":"pork baby back ribs",
-         "unit_measure": "racks",
-         "quantity":"2"},
-
-        {"ingredient_name":"BBQ sauce",
-         "unit_measure": "cup",
-         "quantity":"1"},
-
-        {"ingredient_name":"brown sugar",
-         "unit_measure": "cup",
-        "quantity":"1/4"},
-
-        {"ingredient_name":"paprika",
-         "unit_measure": "tablespoons",
-         "quantity":"2"},
-
-        {"ingredient_name":"garlic powder",
-         "unit_measure": "tablespoons",
-         "quantity":"2"},
-
-        {"ingredient_name":"onion powder",
-         "unit_measure": "tablespoon",
-         "quantity":"1"},
-
-        {"ingredient_name":"chili powder",
-         "unit_measure": "tablespoon",
-         "quantity":"1"},
-
-        {"ingredient_name":"salt powder",
-         "unit_measure": "tablespoon",
-         "quantity":"1"},
-
-        {"ingredient_name":"black pepper",
-         "unit_measure": "teaspoon",
-         "quantity":"1"}
+    "name": "BBQ Ribs",
+    "image": "assets/images/bbq_ribs_details.png",
+    "time": "45 mins",
+    "quantity": "For 2 people",
+    "calories": 774,
+    "description": "BBQ ribs are a savory and smoky American dish that features pork baby back ribs coated in a delicious blend of spices and slow-cooked until tender in the oven.",
+    "ingredients": [
+        {
+            "ingredient_name": "pork baby back ribs",
+            "unit_measure": "racks",
+            "quantity": "2"
+        },
+        {
+            "ingredient_name": "BBQ sauce",
+            "unit_measure": "cup",
+            "quantity": "1"
+        },
+        {
+            "ingredient_name": "brown sugar",
+            "unit_measure": "cup",
+            "quantity": "1/4"
+        },
+        {
+            "ingredient_name": "paprika",
+            "unit_measure": "tablespoons",
+            "quantity": "2"
+        },
+        {
+            "ingredient_name": "garlic powder",
+            "unit_measure": "tablespoons",
+            "quantity": "2"
+        },
+        {
+            "ingredient_name": "onion powder",
+            "unit_measure": "tablespoon",
+            "quantity": "1"
+        },
+        {
+            "ingredient_name": "chili powder",
+            "unit_measure": "tablespoon",
+            "quantity": "1"
+        },
+        {
+            "ingredient_name": "salt powder",
+            "unit_measure": "tablespoon",
+            "quantity": "1"
+        },
+        {
+            "ingredient_name": "black pepper",
+            "unit_measure": "teaspoon",
+            "quantity": "1"
+        }
     ]
 }

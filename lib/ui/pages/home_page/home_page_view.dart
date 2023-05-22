@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> implements View {
   @override
   void getBanners(BuildContext context) async {
     ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('Banner dragged')));
+        .showSnackBar(const SnackBar(content: Text('Banner deslizado')));
   }
 
   @override

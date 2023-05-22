@@ -6,7 +6,8 @@ import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
 
 import '../../../config/localizations.dart';
 import '../../../domain/food/food.dart';
-import '../../widgets/custom_item_icon.dart';
+import '../../widgets/food_detail_widget.dart';
+import '../../widgets/food_recipe_widget.dart';
 
 class DetailPageView extends StatefulWidget {
   const DetailPageView({required this.foodName, super.key});
@@ -44,18 +45,19 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
           icon: const Icon(Icons.arrow_back_rounded),
         ),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<Food>(
         future: pagePresenter.initDetailFood(widget.foodName),
-        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<Food> snapshot) {
           if (snapshot.hasData) {
             return ListView(
               children: [
                 Image.asset(
-                  snapshot.data.imageUrl,
+                  snapshot.data?.imageUrl ?? '',
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
                 LabelWidget(
-                  label: snapshot.data.name,
+                  semanticOrdinal: 1.0,
+                  label: snapshot.data?.name ?? '',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -81,100 +83,15 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(35),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      FoodDescriptionRowWidget(
-                        nameAssetIcon: languaje!
-                            .icons[languaje.icons.indexWhere(
-                                (element) => element.iconName == 'time')]
-                            .urlImage,
-                        nameItem: snapshot.data.time,
-                      ),
-                      FoodDescriptionRowWidget(
-                        nameAssetIcon: languaje
-                            .icons[languaje.icons.indexWhere(
-                                (element) => element.iconName == 'quantity')]
-                            .urlImage,
-                        nameItem:
-                            'For ${snapshot.data.quantity} ${snapshot.data.quantity > 1 ? 'people' : 'person'}',
-                      ),
-                      FoodDescriptionRowWidget(
-                        nameAssetIcon: languaje
-                            .icons[languaje.icons.indexWhere(
-                                (element) => element.iconName == 'calories')]
-                            .urlImage,
-                        nameItem: '${snapshot.data.calories} calories',
-                      ),
-                    ],
-                  ),
+                  child: FoodDetailWidget(
+                      iconsDetails: languaje?.iconsDetails,
+                      food: snapshot.data!),
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.07),
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.015,
-                      horizontal: MediaQuery.of(context).size.width * 0.06),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(35),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      LabelWidget(
-                        label: languaje.description.label,
-                        labelSemantic: languaje.description.semantic,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 17,
-                            letterSpacing: -0.67),
-                      ),
-                      LabelWidget(
-                        label: snapshot.data.description,
-                        style: const TextStyle(
-                          fontSize: 13,
-                          letterSpacing: -0.67,
-                          color: Color(0xFFB6B6B6),
-                        ),
-                      ),
-                      LabelWidget(
-                        label: languaje.ingredients.label,
-                        labelSemantic: languaje.ingredients.semantic,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 17,
-                            letterSpacing: -0.67),
-                      ),
-                      SizedBox(
-                        height: 170.0,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: snapshot.data.ingredients.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Row(children: [
-                              Container(
-                                margin: const EdgeInsets.all(3),
-                                padding: const EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFEA4F46),
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                              ),
-                              LabelWidget(
-                                label:
-                                    '${snapshot.data.ingredients[index].quantity} ${snapshot.data.ingredients[index].unitMeasure} ${snapshot.data.ingredients[index].name}',
-                                style: const TextStyle(
-                                    color: Color(0xFFB6B6B6),
-                                    letterSpacing: -0.67),
-                              ),
-                            ]);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                FoodRecipeWidget(
+                    semanticOrdinal: 0.0,
+                    description: languaje?.description,
+                    ingredients: languaje?.ingredients,
+                    food: snapshot.data),
               ],
             );
           } else {
@@ -188,38 +105,5 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
   @override
   void showDetail(Food detailFood) {
     currentFood = detailFood;
-  }
-}
-
-class FoodDescriptionRowWidget extends StatelessWidget {
-  const FoodDescriptionRowWidget({
-    super.key,
-    required this.nameItem,
-    required this.nameAssetIcon,
-  });
-
-  final String nameItem;
-  final String nameAssetIcon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.008),
-          child: CustomItemIcon(
-            imageAssetIcon: nameAssetIcon,
-            backgroundItemColor: const Color(0xFFF4AA4A),
-            iconSize: 0.016,
-          ),
-        ),
-        LabelWidget(
-          label: nameItem,
-          style: const TextStyle(
-              color: Color(0xFFB6B6B6), fontSize: 12, letterSpacing: -0.31),
-        ),
-      ],
-    );
   }
 }

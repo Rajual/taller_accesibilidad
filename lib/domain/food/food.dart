@@ -13,7 +13,7 @@ class Food {
   final String name;
   final String imageUrl;
   final String? time;
-  final int? quantity;
+  final String? quantity;
   final int? calories;
   final String? description;
   final String? price;

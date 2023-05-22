@@ -53,38 +53,48 @@ class ItemModel {
 
 class DetailModel {
   final ItemModel subTitle;
-  final List<Icon> icons;
   final ItemModel description;
   final ItemModel ingredients;
+  final IconsDetails iconsDetails;
 
   DetailModel({
     required this.subTitle,
-    required this.icons,
     required this.description,
     required this.ingredients,
+    required this.iconsDetails,
   });
 
   factory DetailModel.fromJson(Map<String, dynamic> json) => DetailModel(
         subTitle: ItemModel.fromMap(json["sub_title"]),
-        icons: List<Icon>.from(json["icons"].map((x) => Icon.fromJson(x))),
         description: ItemModel.fromMap(json["description"]),
         ingredients: ItemModel.fromMap(json["ingredients"]),
+        iconsDetails: IconsDetails.fromMap(json["icons"]),
       );
 }
 
-class Icon {
-  final String iconName;
+class IconsDetails {
+  final IconModel? time;
+  final IconModel? quantity;
+  final IconModel? calories;
+  IconsDetails({this.time, this.quantity, this.calories});
+
+  factory IconsDetails.fromMap(Map<String, dynamic> json) => IconsDetails(
+        calories: IconModel.fromJson(json["calories"]),
+        quantity: IconModel.fromJson(json["quantity"]),
+        time: IconModel.fromJson(json["time"]),
+      );
+}
+
+class IconModel {
   final String urlImage;
   final String semantic;
 
-  Icon({
-    required this.iconName,
+  IconModel({
     required this.urlImage,
     required this.semantic,
   });
 
-  factory Icon.fromJson(Map<String, dynamic> json) => Icon(
-        iconName: json["icon_name"],
+  factory IconModel.fromJson(Map<String, dynamic> json) => IconModel(
         urlImage: json["url_image"],
         semantic: json["semantic"],
       );
