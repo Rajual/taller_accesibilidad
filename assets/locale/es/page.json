@@ -1,6 +1,59 @@
 {
-  "home": {
-    "title": {"label":"Chef Hamburguesa","semantic":"Hola Mundo!"},
-    "sub_title": {"label":"Ven por tu comida", "semantic": "Ven por tu comida"}
+  "home":{
+    "title":{
+      "label":"Chef Hamburguesa",
+      "semantic":"Bienvenido a Chef Hamburguesa"
+    },
+    "sub_title":{
+      "label":"Ven por tu comida",
+      "semantic":"Ven por tu comida"
+    },
+    "category_subtitle":{
+      "label":"Categorías",
+      "semantic":"Categorías de comida disponible"
+    },
+    "for_you":{
+      "label":"Para ti",
+      "semantic": "Comida seleccionada para ti"
+    },
+    "see_more":{
+      "label":"Ver más",
+      "semantic":"Ver más comida"
+    },
+    "search":{
+      "label":"Busca comida",
+      "semantic":"Ingresa comida a buscar"
+    }
+  },
+  "details":{
+    "sub_title":{
+      "label":"Cocina Sana para una Salud Radiante",
+      "semantic":"Cocina sana para una salud radiante"
+    },
+    "icons":[
+      {
+        "icon_name":"time",
+        "url_image":"assets/images/clock_icon.png",
+        "semantic":"Tiempo de cocción"
+      },
+      {
+        "icon_name":"quantity",
+        "url_image":"assets/images/fork_icon.png",
+        "semantic":"Cantidad de personas"
+      },
+      {
+        "icon_name":"calories",
+        "url_image":"assets/images/bolt_icon.png",
+        "semantic":"Valor nutricional"
+      }
+    ],
+    "description":{
+      "label":"Descripcion",
+      "semantic":"Descripción del platillo"
+    },
+    "ingredients":{
+      "label":"Ingredientes",
+      "semantic":"Ingredientes de preparación"
+    }
   }
 }

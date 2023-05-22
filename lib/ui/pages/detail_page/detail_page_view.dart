@@ -4,6 +4,7 @@ import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_presenter.
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
 import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
 
+import '../../../config/localizations.dart';
 import '../../../domain/food/food.dart';
 import '../../widgets/custom_item_icon.dart';
 
@@ -29,6 +30,8 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
 
   @override
   Widget build(BuildContext context) {
+    final languaje =
+        MyAppLocalizations.of(context)?.getJsonTranslate().detailModel;
     return Scaffold(
       backgroundColor: const Color(0xFFF4AA4A),
       appBar: AppBar(
@@ -61,9 +64,10 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                           Theme.of(context).textTheme.headlineLarge!.fontSize,
                       letterSpacing: -2.5),
                 ),
-                const LabelWidget(
-                  label: 'Cooking Healthy for Radiant Health',
-                  style: TextStyle(color: Colors.white),
+                LabelWidget(
+                  label: languaje?.subTitle.label ?? '',
+                  labelSemantic: languaje?.subTitle.semantic,
+                  style: const TextStyle(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
                 Container(
@@ -81,16 +85,25 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       FoodDescriptionRowWidget(
-                        nameAssetIcon: 'assets/images/clock_icon.png',
+                        nameAssetIcon: languaje!
+                            .icons[languaje.icons.indexWhere(
+                                (element) => element.iconName == 'time')]
+                            .urlImage,
                         nameItem: snapshot.data.time,
                       ),
                       FoodDescriptionRowWidget(
-                        nameAssetIcon: 'assets/images/fork_icon.png',
+                        nameAssetIcon: languaje
+                            .icons[languaje.icons.indexWhere(
+                                (element) => element.iconName == 'quantity')]
+                            .urlImage,
                         nameItem:
                             'For ${snapshot.data.quantity} ${snapshot.data.quantity > 1 ? 'people' : 'person'}',
                       ),
                       FoodDescriptionRowWidget(
-                        nameAssetIcon: 'assets/images/bolt_icon.png',
+                        nameAssetIcon: languaje
+                            .icons[languaje.icons.indexWhere(
+                                (element) => element.iconName == 'calories')]
+                            .urlImage,
                         nameItem: '${snapshot.data.calories} calories',
                       ),
                     ],
@@ -109,9 +122,10 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const LabelWidget(
-                        label: 'Description',
-                        style: TextStyle(
+                      LabelWidget(
+                        label: languaje.description.label,
+                        labelSemantic: languaje.description.semantic,
+                        style: const TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
                             letterSpacing: -0.67),
@@ -124,9 +138,10 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                           color: Color(0xFFB6B6B6),
                         ),
                       ),
-                      const LabelWidget(
-                        label: 'Ingredients',
-                        style: TextStyle(
+                      LabelWidget(
+                        label: languaje.ingredients.label,
+                        labelSemantic: languaje.ingredients.semantic,
+                        style: const TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
                             letterSpacing: -0.67),

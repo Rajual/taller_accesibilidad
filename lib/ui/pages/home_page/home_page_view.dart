@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:taller_accesibilidad/domain/banner/banner.dart';
-import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_view.dart';
-import 'package:taller_accesibilidad/config/localizations.dart';
-import 'package:taller_accesibilidad/ui/pages/home_page/home_page_presenter.dart';
+
+import '../../../domain/banner/banner.dart';
+import '../detail_page/detail_page_view.dart';
+import '../../../config/localizations.dart';
+import 'home_page_presenter.dart';
 import '../../../domain/food/food.dart';
 import '../../widgets/custom_bottom_navigation_bar.dart';
 import '../../widgets/custom_item_icon.dart';
@@ -44,8 +45,9 @@ class _HomePageState extends State<HomePage> implements View {
               labelSemantic: languaje?.title.semantic ?? '',
               style: const TextStyle(fontWeight: FontWeight.w700, height: 2.5),
             ),
-            const LabelWidget(
-              label: "Let's grab your food!",
+            LabelWidget(
+              label: languaje?.subTitle.label ?? '',
+              labelSemantic: languaje?.subTitle.semantic,
             ),
             SizedBox(
               width: double.infinity,
@@ -55,9 +57,10 @@ class _HomePageState extends State<HomePage> implements View {
                   action: () => getBanners(context)),
             ),
             SearchFoodFoodWidget(widget: widget),
-            const LabelWidget(
-              label: 'Food Category',
-              style: TextStyle(fontWeight: FontWeight.w700, height: 2.5),
+            LabelWidget(
+              label: languaje?.categorySubtitle.label ?? '',
+              labelSemantic: languaje?.categorySubtitle.semantic,
+              style: const TextStyle(fontWeight: FontWeight.w700, height: 2.5),
             ),
             const FoodCategoryRowWidget(),
             const SizedBox(
@@ -65,16 +68,18 @@ class _HomePageState extends State<HomePage> implements View {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 LabelWidget(
-                  label: 'Food for you',
-                  style: TextStyle(
+                  label: languaje?.forYou.label ?? '',
+                  labelSemantic: languaje?.forYou.semantic,
+                  style: const TextStyle(
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 LabelWidget(
-                  label: 'See all',
-                  style: TextStyle(color: Color(0xFFF4AA4A)),
+                  label: languaje?.seeMore.label ?? '',
+                  labelSemantic: languaje?.seeMore.semantic,
+                  style: const TextStyle(color: Color(0xFFF4AA4A)),
                 ),
               ],
             ),
@@ -155,18 +160,20 @@ class SearchFoodFoodWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final languaje =
+        MyAppLocalizations.of(context)?.getJsonTranslate().homeModel;
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: const Color(0xFFF9F9F9)),
       child: TextField(
         controller: widget.model.searchTextEditingController,
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           border: InputBorder.none,
-          prefixIcon: Icon(Icons.search),
-          prefixIconColor: Color(0xFFF4AA4A),
-          hintText: 'Search for food',
-          hintStyle: TextStyle(color: Colors.black),
+          prefixIcon: const Icon(Icons.search),
+          prefixIconColor: const Color(0xFFF4AA4A),
+          hintText: languaje?.search.label,
+          hintStyle: const TextStyle(color: Colors.black),
         ),
       ),
     );

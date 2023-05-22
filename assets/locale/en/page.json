@@ -1,6 +1,59 @@
 {
-    "home": {
-        "title": {"label":"Chef Burguer","semantic":"Hello Wold!"},
-        "sub_title": {"label":"Let’s grab your food!", "semantic": "Let’s grab your food!"}
+    "home":{
+      "title":{
+        "label":"Chef Burger",
+        "semantic":"Welcome to chef burger"
+      },
+      "sub_title":{
+        "label":"Let's grab your food!",
+        "semantic":"Let's grab your food"
+      },
+      "category_subtitle":{
+        "label":"Food Category",
+        "semantic":"Categories of available food"
+      },
+      "for_you":{
+        "label":"Food for you",
+        "semantic": "Food selected for you"
+      },
+      "see_more":{
+        "label":"See more",
+        "semantic":"See more food"
+      },
+      "search":{
+        "label":"Search for food",
+        "semantic":"Type in food name to search"
+      }
+    },
+    "details":{
+      "sub_title":{
+        "label":"Cooking Healty For Radiant Healt",
+        "semantic":"Cooking Healty For Radiant Healt"
+      },
+      "icons":[
+        {
+          "icon_name":"time",
+          "url_image":"assets/images/clock_icon.png",
+          "semantic":"Cook time"
+        },
+        {
+          "icon_name":"quantity",
+          "url_image":"assets/images/fork_icon.png",
+          "semantic":"Quantity"
+        },
+        {
+          "icon_name":"calories",
+          "url_image":"assets/images/bolt_icon.png",
+          "semantic":"Calories"
+        }
+      ],
+      "description":{
+        "label":"Description",
+        "semantic":"Dish Description"
+      },
+      "ingredients":{
+        "label":"Ingredients",
+        "semantic":"Ingredients"
+      }
     }
-}
+  }
