@@ -56,7 +56,7 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
                 LabelWidget(
-                  semanticOrdinal: 1.0,
+                  semanticOrdinal: 0.0,
                   label: snapshot.data?.name ?? '',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -88,7 +88,7 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                       food: snapshot.data!),
                 ),
                 FoodRecipeWidget(
-                    semanticOrdinal: 0.0,
+                    semanticOrdinal: 1.0,
                     description: languaje?.description,
                     ingredients: languaje?.ingredients,
                     food: snapshot.data),

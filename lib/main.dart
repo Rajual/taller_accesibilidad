@@ -13,16 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        localizationsDelegates: const [
-          MyAppLocalizations.delegate,
-        ],
-        debugShowCheckedModeBanner: false,
-        title: 'Taller Accesabilidad',
-        home: HomePage(
-          model: HomePageModel(
-              foodGateway: FoodLocalRepository(LocalStorage()),
-              bannerGateway: BannerRepositoryLocal(LocalStorage())),
-        ));
+    return InteractiveViewer(
+      maxScale: 5,
+      child: MaterialApp(
+          localizationsDelegates: const [
+            MyAppLocalizations.delegate,
+          ],
+          debugShowCheckedModeBanner: false,
+          title: 'Taller Accesabilidad',
+          home: HomePage(
+            model: HomePageModel(
+                foodGateway: FoodLocalRepository(LocalStorage()),
+                bannerGateway: BannerRepositoryLocal(LocalStorage())),
+          )),
+    );
   }
 }

@@ -19,7 +19,8 @@ class LabelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      sortKey: OrdinalSortKey(semanticOrdinal ?? 0.0),
+      sortKey: OrdinalSortKey(semanticOrdinal??double.maxFinite),
+      focused: semanticOrdinal != null,
       label: labelSemantic ?? label,
       excludeSemantics: true,
       child: Tooltip(
