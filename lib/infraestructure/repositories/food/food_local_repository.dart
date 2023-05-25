@@ -16,4 +16,13 @@ class FoodLocalRepository implements FoodGateway {
     }
     return foods;
   }
+
+  @override
+  Future<Food> getDetailFood() async {
+    final Map<String, dynamic> foodJson =
+        await localStorage.getData('assets/json_backend/detail_bbq.json');
+    final Food foodDetail = Food.fromJson(foodJson);
+
+    return foodDetail;
+  }
 }

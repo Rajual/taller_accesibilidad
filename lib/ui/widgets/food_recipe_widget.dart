@@ -40,7 +40,7 @@ class FoodRecipeWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Semantics(
-                sortKey: OrdinalSortKey(2),
+                sortKey: const OrdinalSortKey(2),
                 focused: true,
                 child: Column(
                   children: [
@@ -67,7 +67,7 @@ class FoodRecipeWidget extends StatelessWidget {
 
               ///
               Semantics(
-                sortKey: OrdinalSortKey(1),
+                sortKey: const OrdinalSortKey(1),
                 focused: true,
                 child: MergeSemantics(
                   child: Column(

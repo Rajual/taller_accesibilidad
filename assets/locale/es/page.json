@@ -27,7 +27,7 @@
     },
     "search":{
       "label":"Busca comida",
-      "semantic":"Ingresa comida a buscar",
+      "semantic":"Ingresa nombre de comida a buscar",
       "semanticOrdinal":5.0
     }
   },

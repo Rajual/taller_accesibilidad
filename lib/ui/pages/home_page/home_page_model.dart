@@ -10,8 +10,11 @@ class HomePageModel implements Model {
   HomePageModel({required this.foodGateway, required this.bannerGateway});
   final FoodGateway foodGateway;
   final BannerGateway bannerGateway;
+
+  @override
   final TextEditingController searchTextEditingController =
       TextEditingController();
+
   @override
   Future<List<Food>> get foods => foodGateway.getFood();
 

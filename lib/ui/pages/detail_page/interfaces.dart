@@ -6,14 +6,8 @@ abstract class View {
 }
 
 abstract class Presenter {
-  // void showFoodFavorite();
   Future<Food> initDetailFood(String foodName);
 }
-
-// abstract class Model {
-//   List<Food> getFoodsFavorite();
-//   Future<Food> getDetailFood(String foodName);
-// }
 
 abstract class Model {
   Future<Food> getDetailFood(String foodName);

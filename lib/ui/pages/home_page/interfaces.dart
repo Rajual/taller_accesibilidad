@@ -4,7 +4,6 @@ import 'package:taller_accesibilidad/domain/food/food.dart';
 
 abstract class View {
   void goToDetailsPage(BuildContext context, String foodDetailName);
-  void showFoodForYou(List<Food> foodForYou);
   void getBanners(BuildContext context);
 }
 

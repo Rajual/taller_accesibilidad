@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> implements View {
   @override
   void initState() {
     super.initState();
-    _presenter = HomePagePresenter(view: this, model: widget.model);
+    _presenter = HomePagePresenter(model: widget.model);
   }
 
   int activePage = 0;
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> implements View {
             const SizedBox(
               height: 20,
             ),
-            AllAndYouWidget(
+            ForYouSectionWidget(
               forYou: languaje!.forYou,
               seeMore: languaje.seeMore,
               foods: _presenter.getFoodForYou(),
@@ -90,19 +90,14 @@ class _HomePageState extends State<HomePage> implements View {
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text('Banner deslizado')));
   }
-
-  @override
-  void showFoodForYou(List<Food> foodForYou) {
-    // TODO: implement showFoodForYou
-  }
 }
 
-class AllAndYouWidget extends StatelessWidget {
+class ForYouSectionWidget extends StatelessWidget {
   final ItemModel forYou;
   final ItemModel seeMore;
   final Future<List<Food>> foods;
   final void Function(String)? action;
-  const AllAndYouWidget(
+  const ForYouSectionWidget(
       {super.key,
       required this.forYou,
       required this.seeMore,

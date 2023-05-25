@@ -21,7 +21,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
               iconSize: 0.05,
             ),
             LabelWidget(
-              item: ItemModel(label: 'Main'),
+              item: ItemModel(label: 'Principales'),
             ),
           ],
         ),
@@ -32,7 +32,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
               iconSize: 0.05,
             ),
             LabelWidget(
-              item: ItemModel(label: 'Salad'),
+              item: ItemModel(label: 'Ensaladas'),
             ),
           ],
         ),
@@ -43,7 +43,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
               iconSize: 0.05,
             ),
             LabelWidget(
-              item: ItemModel(label: 'Appetizer'),
+              item: ItemModel(label: 'Aperitivos'),
             ),
           ],
         ),
@@ -54,7 +54,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
               iconSize: 0.05,
             ),
             LabelWidget(
-              item: ItemModel(label: 'Drinks'),
+              item: ItemModel(label: 'Bebidas'),
             ),
           ],
         ),
@@ -65,7 +65,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
               iconSize: 0.05,
             ),
             LabelWidget(
-              item: ItemModel(label: 'Dessert'),
+              item: ItemModel(label: 'Postres'),
             ),
           ],
         )

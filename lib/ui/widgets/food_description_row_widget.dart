@@ -18,28 +18,26 @@ class FoodDescriptionRowWidget extends StatelessWidget {
     if (icon == null || icon?.urlImage == null) {
       return const SizedBox.shrink();
     }
-    return MergeSemantics(
-      child: Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.008),
-            child: CustomItemIcon(
-              imageAssetIcon: icon!.urlImage!,
-              backgroundItemColor: const Color(0xFFF4AA4A),
-              iconSize: 0.016,
-            ),
+    return Row(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.008),
+          child: CustomItemIcon(
+            imageAssetIcon: icon!.urlImage!,
+            backgroundItemColor: const Color(0xFFF4AA4A),
+            iconSize: 0.016,
           ),
-          LabelWidget(
-            item: ItemModel(
-                semanticOrdinal: icon!.semanticOrdinal,
-                semantic: icon!.semantic,
-                label: nameItem),
-            style: const TextStyle(
-                color: Color(0xFFB6B6B6), fontSize: 12, letterSpacing: -0.31),
-          ),
-        ],
-      ),
+        ),
+        LabelWidget(
+          item: ItemModel(
+              semanticOrdinal: icon!.semanticOrdinal,
+              semantic: '${icon!.semantic} $nameItem',
+              label: nameItem),
+          style: const TextStyle(
+              color: Color(0xFFB6B6B6), fontSize: 12, letterSpacing: -0.31),
+        ),
+      ],
     );
   }
 }

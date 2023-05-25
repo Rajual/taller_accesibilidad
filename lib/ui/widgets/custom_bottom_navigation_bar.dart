@@ -49,7 +49,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Settings',
+            label: 'Ajustes',
             icon: CustomItemIcon(
               iconSize: 0.03,
               imageAssetIcon: 'assets/images/setting.png',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/infraestructure/services/local_storage.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_presenter.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
@@ -6,6 +7,7 @@ import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
 
 import '../../../config/localizations.dart';
 import '../../../domain/food/food.dart';
+import '../../../infraestructure/repositories/food/food_local_repository.dart';
 import '../../widgets/food_detail_widget.dart';
 import '../../widgets/food_recipe_widget.dart';
 import 'detail_page_model.dart';
@@ -26,8 +28,13 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
   @override
   void initState() {
     super.initState();
-    pagePresenter =
-        DetailPagePresenter(model: const DetailPageModel(), view: this);
+    pagePresenter = DetailPagePresenter(
+        model: DetailPageModel(
+          foodGateway: FoodLocalRepository(
+            LocalStorage(),
+          ),
+        ),
+        view: this);
   }
 
   @override
@@ -58,8 +65,9 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                 ),
                 LabelWidget(
                   item: ItemModel(
-                  semanticOrdinal: 0.0,
-                  label: snapshot.data?.name ?? '',),
+                    semanticOrdinal: 0.0,
+                    label: snapshot.data?.name ?? '',
+                  ),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -68,9 +76,11 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                           Theme.of(context).textTheme.headlineLarge!.fontSize,
                       letterSpacing: -2.5),
                 ),
-                LabelWidget(item: ItemModel(
-                  label: languaje?.subTitle.label ?? '',
-                  semantic: languaje?.subTitle.semantic,),
+                LabelWidget(
+                  item: ItemModel(
+                    label: languaje?.subTitle.label ?? '',
+                    semantic: languaje?.subTitle.semantic,
+                  ),
                   style: const TextStyle(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
