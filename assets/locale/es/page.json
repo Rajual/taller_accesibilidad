@@ -2,27 +2,33 @@
   "home":{
     "title":{
       "label":"Chef Hamburguesa",
-      "semantic":"Bienvenido a Chef Hamburguesa"
+      "semantic":"Bienvenido a Chef Hamburguesa",
+      "semanticOrdinal":0.0
     },
     "sub_title":{
       "label":"Ven por tu comida",
-      "semantic":"Ven por tu comida"
+      "semantic":"Ven por tu comida",
+      "semanticOrdinal":1.0
     },
     "category_subtitle":{
       "label":"Categorías",
-      "semantic":"Categorías de comida disponible"
+      "semantic":"Categorías de comida disponible",
+      "semanticOrdinal":2.0
     },
     "for_you":{
       "label":"Para ti",
-      "semantic": "Comida seleccionada para ti"
+      "semantic": "Comida seleccionada para ti",
+      "semanticOrdinal":3.0
     },
     "see_more":{
       "label":"Ver más",
-      "semantic":"Ver más comida"
+      "semantic":"Ver más comida",
+      "semanticOrdinal":4.0
     },
     "search":{
       "label":"Busca comida",
-      "semantic":"Ingresa comida a buscar"
+      "semantic":"Ingresa comida a buscar",
+      "semanticOrdinal":5.0
     }
   },
   "details":{

@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 
 class LabelWidget extends StatelessWidget {
   const LabelWidget(
       {super.key,
-      required this.label,
-      this.labelSemantic,
+       this.item,
       this.style,
-      this.textAlign,
-      this.semanticOrdinal});
+      this.textAlign,});
 
-  final String label;
-  final String? labelSemantic;
+final ItemModel? item;
   final TextStyle? style;
   final TextAlign? textAlign;
-  final double? semanticOrdinal;
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      sortKey: OrdinalSortKey(semanticOrdinal??double.maxFinite),
-      focused: semanticOrdinal != null,
-      label: labelSemantic ?? label,
+      sortKey: OrdinalSortKey(item?.semanticOrdinal??double.maxFinite),
+      focused: item?.semanticOrdinal != null,
+      label: item?.semantic ?? item?.label,
       excludeSemantics: true,
       child: Tooltip(
-        message: labelSemantic ?? label,
+        message: item?.semantic ?? item?.label,
         child: Text(
-          label,
+          item?.label??'',
           style: style,
           textAlign: textAlign,
         ),

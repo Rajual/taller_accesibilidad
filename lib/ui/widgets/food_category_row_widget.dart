@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
 
 import 'custom_item_icon.dart';
@@ -19,7 +20,9 @@ class FoodCategoryRowWidget extends StatelessWidget {
               imageAssetIcon: 'assets/images/main.png',
               iconSize: 0.05,
             ),
-            LabelWidget(label: 'Main'),
+            LabelWidget(
+              item: ItemModel(label: 'Main'),
+            ),
           ],
         ),
         Column(
@@ -28,7 +31,9 @@ class FoodCategoryRowWidget extends StatelessWidget {
               imageAssetIcon: 'assets/images/salad.png',
               iconSize: 0.05,
             ),
-            LabelWidget(label: 'Salad'),
+            LabelWidget(
+              item: ItemModel(label: 'Salad'),
+            ),
           ],
         ),
         Column(
@@ -37,7 +42,9 @@ class FoodCategoryRowWidget extends StatelessWidget {
               imageAssetIcon: 'assets/images/appetizer.png',
               iconSize: 0.05,
             ),
-            LabelWidget(label: 'Appetizer'),
+            LabelWidget(
+              item: ItemModel(label: 'Appetizer'),
+            ),
           ],
         ),
         Column(
@@ -46,7 +53,9 @@ class FoodCategoryRowWidget extends StatelessWidget {
               imageAssetIcon: 'assets/images/drinks.png',
               iconSize: 0.05,
             ),
-            LabelWidget(label: 'Drinks'),
+            LabelWidget(
+              item: ItemModel(label: 'Drinks'),
+            ),
           ],
         ),
         Column(
@@ -55,7 +64,9 @@ class FoodCategoryRowWidget extends StatelessWidget {
               imageAssetIcon: 'assets/images/dessert.png',
               iconSize: 0.05,
             ),
-            LabelWidget(label: 'Dessert'),
+            LabelWidget(
+              item: ItemModel(label: 'Dessert'),
+            ),
           ],
         )
       ],

@@ -6,12 +6,11 @@ import '../models/locale_model.dart';
 import 'food_description_row_widget.dart';
 
 class FoodDetailWidget extends StatelessWidget {
-  const FoodDetailWidget({
-    super.key,
-    required this.iconsDetails,
-    required this.food,
-    this.semanticOrdinal=double.maxFinite
-  });
+  const FoodDetailWidget(
+      {super.key,
+      required this.iconsDetails,
+      required this.food,
+      this.semanticOrdinal = double.maxFinite});
 
   final IconsDetails? iconsDetails;
   final Food food;
@@ -26,22 +25,16 @@ class FoodDetailWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FoodDescriptionRowWidget(
-            semanticOrdinal: 0,
-            nameAssetIcon: iconsDetails?.time?.urlImage ?? '',
+            icon: iconsDetails?.time,
             nameItem: food.time ?? '',
-            semantic: iconsDetails?.time?.semantic,
           ),
           FoodDescriptionRowWidget(
-            semanticOrdinal: 2,
-            nameAssetIcon: iconsDetails?.quantity?.urlImage ?? '',
-            semantic: iconsDetails?.quantity?.semantic ?? '',
+            icon: iconsDetails?.quantity,
             nameItem: food.quantity ?? '',
           ),
           FoodDescriptionRowWidget(
-            semanticOrdinal: 1,
-            nameAssetIcon: iconsDetails?.calories?.urlImage ?? '',
-            nameItem: '${food.calories ?? ''} calories',
-            semantic: iconsDetails?.calories?.semantic,
+            icon: iconsDetails?.calories,
+            nameItem: food.calories ?? '',
           ),
         ],
       ),

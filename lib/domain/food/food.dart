@@ -14,7 +14,7 @@ class Food {
   final String imageUrl;
   final String? time;
   final String? quantity;
-  final int? calories;
+  final String? calories;
   final String? description;
   final String? price;
   final List<Ingredients>? ingredients;

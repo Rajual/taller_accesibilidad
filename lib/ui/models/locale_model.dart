@@ -1,20 +1,20 @@
 class LocaleModel {
   const LocaleModel({required this.homeModel, required this.detailModel});
-  final HomeModel homeModel;
-  final DetailModel detailModel;
+  final HomeUiModel homeModel;
+  final DetailUiModel detailModel;
 
   factory LocaleModel.fromMap(Map<String, dynamic> json) {
     return LocaleModel(
-      homeModel: HomeModel.fromMap(
+      homeModel: HomeUiModel.fromMap(
         json['home'],
       ),
-      detailModel: DetailModel.fromJson(json['details']),
+      detailModel: DetailUiModel.fromJson(json['details']),
     );
   }
 }
 
-class HomeModel {
-  const HomeModel({
+class HomeUiModel {
+  const HomeUiModel({
     required this.title,
     required this.subTitle,
     required this.categorySubtitle,
@@ -29,8 +29,8 @@ class HomeModel {
   final ItemModel seeMore;
   final ItemModel search;
 
-  factory HomeModel.fromMap(Map<String, dynamic> json) {
-    return HomeModel(
+  factory HomeUiModel.fromMap(Map<String, dynamic> json) {
+    return HomeUiModel(
       title: ItemModel.fromMap(json['title'] ?? ''),
       subTitle: ItemModel.fromMap(json['sub_title'] ?? ''),
       categorySubtitle: ItemModel.fromMap(json['category_subtitle'] ?? ''),
@@ -42,29 +42,39 @@ class HomeModel {
 }
 
 class ItemModel {
-  ItemModel({required this.label, required this.semantic});
+  const ItemModel({
+    required this.label,
+    this.semantic,
+    this.semanticOrdinal = double.maxFinite,
+  });
   final String label;
-  final String semantic;
+  final String? semantic;
+  final double semanticOrdinal;
 
   factory ItemModel.fromMap(Map<String, dynamic> json) {
-    return ItemModel(label: json['label'], semantic: json['semantic']);
+    final auxLabel = json['label'] ?? '';
+    return ItemModel(
+      label: auxLabel,
+      semantic: json['semantic'] ?? auxLabel,
+      semanticOrdinal: json["semanticOrdinal"] ?? double.maxFinite,
+    );
   }
 }
 
-class DetailModel {
+class DetailUiModel {
   final ItemModel subTitle;
   final ItemModel description;
   final ItemModel ingredients;
   final IconsDetails iconsDetails;
 
-  DetailModel({
+  DetailUiModel({
     required this.subTitle,
     required this.description,
     required this.ingredients,
     required this.iconsDetails,
   });
 
-  factory DetailModel.fromJson(Map<String, dynamic> json) => DetailModel(
+  factory DetailUiModel.fromJson(Map<String, dynamic> json) => DetailUiModel(
         subTitle: ItemModel.fromMap(json["sub_title"]),
         description: ItemModel.fromMap(json["description"]),
         ingredients: ItemModel.fromMap(json["ingredients"]),
@@ -76,26 +86,38 @@ class IconsDetails {
   final IconModel? time;
   final IconModel? quantity;
   final IconModel? calories;
-  IconsDetails({this.time, this.quantity, this.calories});
+  final double? semanticOrdinal;
+
+  IconsDetails({
+    this.time,
+    this.quantity,
+    this.calories,
+    this.semanticOrdinal,
+  });
 
   factory IconsDetails.fromMap(Map<String, dynamic> json) => IconsDetails(
-        calories: IconModel.fromJson(json["calories"]),
-        quantity: IconModel.fromJson(json["quantity"]),
-        time: IconModel.fromJson(json["time"]),
-      );
+      calories: IconModel.fromJson(json["calories"]),
+      quantity: IconModel.fromJson(json["quantity"]),
+      time: IconModel.fromJson(json["time"]),
+      semanticOrdinal: json["semanticOrdinal"]);
 }
 
 class IconModel {
-  final String urlImage;
+  final String? urlImage;
   final String semantic;
+  final double semanticOrdinal;
 
   IconModel({
     required this.urlImage,
     required this.semantic,
+    this.semanticOrdinal = double.maxFinite,
   });
 
-  factory IconModel.fromJson(Map<String, dynamic> json) => IconModel(
-        urlImage: json["url_image"],
-        semantic: json["semantic"],
-      );
+  factory IconModel.fromJson(Map<String, dynamic> json) {
+    return IconModel(
+      urlImage: json["url_image"],
+      semantic: json["semantic"] ?? '',
+      semanticOrdinal: json["semanticOrdinal"] ?? double.maxFinite,
+    );
+  }
 }

@@ -22,9 +22,9 @@ class FoodRecipeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InteractiveViewer(
-       maxScale: 5,
+      maxScale: 5,
       child: Semantics(
-        sortKey:OrdinalSortKey(semanticOrdinal??double.maxFinite),
+        sortKey: OrdinalSortKey(semanticOrdinal ?? double.maxFinite),
         focused: true,
         child: Container(
           margin: EdgeInsets.symmetric(
@@ -45,15 +45,16 @@ class FoodRecipeWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     LabelWidget(
-                      label: description?.label ?? '',
-                      labelSemantic: description?.semantic,
+                      item: description,
                       style: const TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 17,
                           letterSpacing: -0.67),
                     ),
                     LabelWidget(
-                      label: food?.description ?? '',
+                      item: ItemModel(
+                        label: food?.description ?? '',
+                      ),
                       style: const TextStyle(
                         fontSize: 13,
                         letterSpacing: -0.67,
@@ -63,17 +64,16 @@ class FoodRecipeWidget extends StatelessWidget {
                   ],
                 ),
               ),
-    
+
               ///
               Semantics(
-                  sortKey: OrdinalSortKey(1),
+                sortKey: OrdinalSortKey(1),
                 focused: true,
                 child: MergeSemantics(
                   child: Column(
                     children: [
                       LabelWidget(
-                        label: ingredients?.label ?? '',
-                        labelSemantic: ingredients?.semantic,
+                        item: ingredients,
                         style: const TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
@@ -85,6 +85,8 @@ class FoodRecipeWidget extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: food?.ingredients?.length ?? 0,
                           itemBuilder: (BuildContext context, int index) {
+                            final Ingredients? ingredients =
+                                food?.ingredients?[index];
                             return Row(children: [
                               Container(
                                 margin: const EdgeInsets.all(3),
@@ -95,8 +97,10 @@ class FoodRecipeWidget extends StatelessWidget {
                                 ),
                               ),
                               LabelWidget(
-                                label:
-                                    '${food?.ingredients?[index].quantity} ${food?.ingredients?[index].unitMeasure} ${food?.ingredients?[index].name}',
+                                item: ItemModel(
+                                  label:
+                                      '${ingredients?.quantity ?? ''} ${ingredients?.unitMeasure ?? ''} ${ingredients?.name ?? ''}',
+                                ),
                                 style: const TextStyle(
                                     color: Color(0xFFB6B6B6),
                                     letterSpacing: -0.67),

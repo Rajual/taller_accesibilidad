@@ -9,7 +9,7 @@ class FoodLocalRepository implements FoodGateway {
   Future<List<Food>> getFood() async {
     final List<Food> foods = [];
     final Map<String, dynamic> data =
-        await localStorage.getData('assets/foods.json');
+        await localStorage.getData('assets/json_backend/foods.json');
 
     for (var element in data['foods']) {
       foods.add(Food.fromJson(element));

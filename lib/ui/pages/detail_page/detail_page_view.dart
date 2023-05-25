@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_model.dart';
+import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_presenter.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
 import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
@@ -8,6 +8,7 @@ import '../../../config/localizations.dart';
 import '../../../domain/food/food.dart';
 import '../../widgets/food_detail_widget.dart';
 import '../../widgets/food_recipe_widget.dart';
+import 'detail_page_model.dart';
 
 class DetailPageView extends StatefulWidget {
   const DetailPageView({required this.foodName, super.key});
@@ -56,8 +57,9 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
                 LabelWidget(
+                  item: ItemModel(
                   semanticOrdinal: 0.0,
-                  label: snapshot.data?.name ?? '',
+                  label: snapshot.data?.name ?? '',),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -66,9 +68,9 @@ class _DetailPageViewState extends State<DetailPageView> implements View {
                           Theme.of(context).textTheme.headlineLarge!.fontSize,
                       letterSpacing: -2.5),
                 ),
-                LabelWidget(
+                LabelWidget(item: ItemModel(
                   label: languaje?.subTitle.label ?? '',
-                  labelSemantic: languaje?.subTitle.semantic,
+                  semantic: languaje?.subTitle.semantic,),
                   style: const TextStyle(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
