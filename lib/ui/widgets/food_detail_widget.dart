@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import '../../domain/food/food.dart';
 import '../models/locale_model.dart';
@@ -18,29 +17,25 @@ class FoodDetailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      sortKey: OrdinalSortKey(semanticOrdinal),
-      focusable: true,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          FoodDescriptionRowWidget(
-            icon: iconsDetails?.time,
-            nameItem: food.time ?? '',
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        FoodDescriptionRowWidget(
+          icon: iconsDetails?.time,
+          nameItem: food.time ?? '',
+        ),
+        FoodDescriptionRowWidget(
+          icon: iconsDetails?.quantity,
+          nameItem: food.quantity ?? '',
+        ),
+        Expanded(
+          child: FoodDescriptionRowWidget(
+            icon: iconsDetails?.calories,
+            nameItem: food.calories ?? '',
           ),
-          FoodDescriptionRowWidget(
-            icon: iconsDetails?.quantity,
-            nameItem: food.quantity ?? '',
-          ),
-          Expanded(
-            child: FoodDescriptionRowWidget(
-              icon: iconsDetails?.calories,
-              nameItem: food.calories ?? '',
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

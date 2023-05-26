@@ -25,46 +25,32 @@ class _BannersWidgetState extends State<BannersWidget> {
       builder:
           (BuildContext context, AsyncSnapshot<List<BannerModel>> snapshot) {
         if (snapshot.hasData) {
-          return Semantics(
-            label: widget.itemModel.semantic,
-            sortKey: OrdinalSortKey(widget.itemModel.semanticOrdinal),
-            focusable: true,
-            onDidGainAccessibilityFocus: () =>
-                Scrollable.ensureVisible(context),
-            child: MergeSemantics(
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    itemCount: snapshot.data?.length ?? 0,
-                    pageSnapping: true,
-                    onPageChanged: (value) {
-                      setState(() {
-                        activePage = value;
-                        widget.action?.call();
-                      });
-                    },
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.01),
-                        child: Semantics(
-                            label: snapshot.data?[index].name ?? '',
-                            child: Image.asset(
-                                snapshot.data?[index].urlPhoto ?? '')),
-                      );
-                    },
-                  ),
-                  Positioned(
-                    bottom: MediaQuery.of(context).size.height * 0.02,
-                    left: MediaQuery.of(context).size.width * 0.39,
-                    child: BannerIndicatorWidget(
-                        activePage: activePage,
-                        length: snapshot.data?.length ?? 0),
-                  ),
-                ],
+          return Stack(
+            children: [
+              PageView.builder(
+                itemCount: snapshot.data?.length ?? 0,
+                pageSnapping: true,
+                onPageChanged: (value) {
+                  setState(() {
+                    activePage = value;
+                    widget.action?.call();
+                  });
+                },
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.01),
+                    child: Image.asset(snapshot.data?[index].urlPhoto ?? ''),
+                  );
+                },
               ),
-            ),
+              Positioned(
+                bottom: MediaQuery.of(context).size.height * 0.02,
+                left: MediaQuery.of(context).size.width * 0.39,
+                child: BannerIndicatorWidget(
+                    activePage: activePage, length: snapshot.data?.length ?? 0),
+              ),
+            ],
           );
         } else {
           return const CircularProgressIndicator();
@@ -86,16 +72,12 @@ class BannerIndicatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      label: '${activePage + 1} de $length',
-      focusable: true,
-      child: Row(
-        children: List<Widget>.generate(length, (index) {
-          return DotIndicatorWidget(
-            isCurrentIndex: activePage == index,
-          );
-        }),
-      ),
+    return Row(
+      children: List<Widget>.generate(length, (index) {
+        return DotIndicatorWidget(
+          isCurrentIndex: activePage == index,
+        );
+      }),
     );
   }
 }

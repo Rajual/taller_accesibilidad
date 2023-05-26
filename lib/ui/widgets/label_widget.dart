@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 
 class LabelWidget extends StatelessWidget {
@@ -16,18 +15,12 @@ class LabelWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      sortKey: OrdinalSortKey(item?.semanticOrdinal ?? double.maxFinite),
-      label: item?.semantic ?? item?.label,
-      excludeSemantics: true,
-      focusable: true,
-      child: Tooltip(
-        message: item?.semantic ?? item?.label,
-        child: Text(
-          item?.label ?? '',
-          style: style,
-          textAlign: textAlign,
-        ),
+    return Tooltip(
+      message: item?.semantic ?? item?.label,
+      child: Text(
+        item?.label ?? '',
+        style: style,
+        textAlign: textAlign,
       ),
     );
   }

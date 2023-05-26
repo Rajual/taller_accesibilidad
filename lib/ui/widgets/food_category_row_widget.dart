@@ -14,75 +14,60 @@ class FoodCategoryRowWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Semantics(
-          focusable: false,
-          child: Column(
-            children: const [
-              CustomItemIcon(
-                imageAssetIcon: 'assets/images/main.png',
-                iconSize: 0.05,
-              ),
-              LabelWidget(
-                item: ItemModel(label: 'Principales'),
-              ),
-            ],
-          ),
+        Column(
+          children: const [
+            CustomItemIcon(
+              imageAssetIcon: 'assets/images/main.png',
+              iconSize: 0.05,
+            ),
+            LabelWidget(
+              item: ItemModel(label: 'Principales'),
+            ),
+          ],
         ),
-        Semantics(
-          focusable: true,
-          child: Column(
-            children: const [
-              CustomItemIcon(
-                imageAssetIcon: 'assets/images/salad.png',
-                iconSize: 0.05,
-              ),
-              LabelWidget(
-                item: ItemModel(label: 'Ensaladas'),
-              ),
-            ],
-          ),
+        Column(
+          children: const [
+            CustomItemIcon(
+              imageAssetIcon: 'assets/images/salad.png',
+              iconSize: 0.05,
+            ),
+            LabelWidget(
+              item: ItemModel(label: 'Ensaladas'),
+            ),
+          ],
         ),
-        Semantics(
-          focusable: true,
-          child: Column(
-            children: const [
-              CustomItemIcon(
-                imageAssetIcon: 'assets/images/appetizer.png',
-                iconSize: 0.05,
-              ),
-              LabelWidget(
-                item: ItemModel(label: 'Aperitivos'),
-              ),
-            ],
-          ),
+        Column(
+          children: const [
+            CustomItemIcon(
+              imageAssetIcon: 'assets/images/appetizer.png',
+              iconSize: 0.05,
+            ),
+            LabelWidget(
+              item: ItemModel(label: 'Aperitivos'),
+            ),
+          ],
         ),
-        Semantics(
-          focusable: true,
-          child: Column(
-            children: const [
-              CustomItemIcon(
-                imageAssetIcon: 'assets/images/drinks.png',
-                iconSize: 0.05,
-              ),
-              LabelWidget(
-                item: ItemModel(label: 'Bebidas'),
-              ),
-            ],
-          ),
+        Column(
+          children: const [
+            CustomItemIcon(
+              imageAssetIcon: 'assets/images/drinks.png',
+              iconSize: 0.05,
+            ),
+            LabelWidget(
+              item: ItemModel(label: 'Bebidas'),
+            ),
+          ],
         ),
-        Semantics(
-          focusable: true,
-          child: Column(
-            children: const [
-              CustomItemIcon(
-                imageAssetIcon: 'assets/images/dessert.png',
-                iconSize: 0.05,
-              ),
-              LabelWidget(
-                item: ItemModel(label: 'Postres'),
-              ),
-            ],
-          ),
+        Column(
+          children: const [
+            CustomItemIcon(
+              imageAssetIcon: 'assets/images/dessert.png',
+              iconSize: 0.05,
+            ),
+            LabelWidget(
+              item: ItemModel(label: 'Postres'),
+            ),
+          ],
         )
       ],
     );

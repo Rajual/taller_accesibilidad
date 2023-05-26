@@ -48,16 +48,13 @@ class _HomePageState extends State<HomePage> implements View {
             LabelWidget(
               item: languaje?.subTitle,
             ),
-            Semantics(
-              sortKey: const OrdinalSortKey(0),
-              child: SizedBox(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.2,
-                child: BannersWidget(
-                    itemModel: languaje!.banner,
-                    banners: _presenter.getBanners(),
-                    action: () => getBanners(context)),
-              ),
+            SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.2,
+              child: BannersWidget(
+                  itemModel: languaje!.banner,
+                  banners: _presenter.getBanners(),
+                  action: () => getBanners(context)),
             ),
             SearchFoodFoodWidget(model: widget.model, search: languaje.search),
             LabelWidget(
@@ -76,8 +73,7 @@ class _HomePageState extends State<HomePage> implements View {
             )
           ],
         ),
-        bottomNavigationBar:
-            ExcludeSemantics(child: const CustomBottomNavigationBar()));
+        bottomNavigationBar: const CustomBottomNavigationBar());
   }
 
   @override
