@@ -13,6 +13,7 @@ class FoodGridWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       label: '${food.name} ${food.price}',
+      focusable: true,
       child: GestureDetector(
         onTap: callbackNavigation,
         child: ExcludeSemantics(

@@ -20,6 +20,7 @@ class LabelWidget extends StatelessWidget {
       sortKey: OrdinalSortKey(item?.semanticOrdinal ?? double.maxFinite),
       label: item?.semantic ?? item?.label,
       excludeSemantics: true,
+      focusable: true,
       child: Tooltip(
         message: item?.semantic ?? item?.label,
         child: Text(

@@ -20,6 +20,7 @@ class FoodDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       sortKey: OrdinalSortKey(semanticOrdinal),
+      focusable: true,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceAround,

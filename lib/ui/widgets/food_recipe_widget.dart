@@ -25,6 +25,7 @@ class FoodRecipeWidget extends StatelessWidget {
       maxScale: 5,
       child: Semantics(
         sortKey: OrdinalSortKey(semanticOrdinal ?? double.maxFinite),
+        focusable: true,
         child: Container(
           margin: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.07),

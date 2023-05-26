@@ -20,6 +20,7 @@ class SearchFoodFoodWidget extends StatelessWidget {
       label: search?.semantic ?? search?.label,
       sortKey: OrdinalSortKey(search?.semanticOrdinal ?? double.maxFinite),
       textField: true,
+      focusable: true,
       child: ExcludeSemantics(
         child: Container(
           decoration: BoxDecoration(

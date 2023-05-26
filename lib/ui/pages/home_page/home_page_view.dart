@@ -76,7 +76,8 @@ class _HomePageState extends State<HomePage> implements View {
             )
           ],
         ),
-        bottomNavigationBar: const CustomBottomNavigationBar());
+        bottomNavigationBar:
+            ExcludeSemantics(child: const CustomBottomNavigationBar()));
   }
 
   @override

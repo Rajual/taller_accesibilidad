@@ -28,6 +28,9 @@ class _BannersWidgetState extends State<BannersWidget> {
           return Semantics(
             label: widget.itemModel.semantic,
             sortKey: OrdinalSortKey(widget.itemModel.semanticOrdinal),
+            focusable: true,
+            onDidGainAccessibilityFocus: () =>
+                Scrollable.ensureVisible(context),
             child: MergeSemantics(
               child: Stack(
                 children: [
@@ -85,6 +88,7 @@ class BannerIndicatorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       label: '${activePage + 1} de $length',
+      focusable: true,
       child: Row(
         children: List<Widget>.generate(length, (index) {
           return DotIndicatorWidget(

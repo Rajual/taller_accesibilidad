@@ -22,6 +22,7 @@ class ForYouSectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       sortKey: OrdinalSortKey(forYou.semanticOrdinal),
+      focusable: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -29,23 +30,33 @@ class ForYouSectionWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               LabelWidget(
-                item: forYou,
+                item: ItemModel(
+                    label: forYou.label,
+                    semantic: forYou.semantic,
+                    semanticOrdinal: forYou.semanticOrdinal + 0.1),
                 style: const TextStyle(
                   fontWeight: FontWeight.w700,
                 ),
               ),
               LabelWidget(
-                item: seeMore,
+                item: ItemModel(
+                    label: seeMore.label,
+                    semantic: seeMore.semantic,
+                    semanticOrdinal: forYou.semanticOrdinal + 0.3),
                 style: const TextStyle(color: Color(0xFFF4AA4A)),
               ),
             ],
           ),
-          SizedBox(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: FoodForYouWidget(
-              action: (label) => action?.call(label),
-              foods: foods,
+          Semantics(
+            sortKey: OrdinalSortKey(forYou.semanticOrdinal + 0.2),
+            focusable: true,
+            child: SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.5,
+              child: FoodForYouWidget(
+                action: (label) => action?.call(label),
+                foods: foods,
+              ),
             ),
           )
         ],

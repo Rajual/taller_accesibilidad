@@ -13,12 +13,12 @@
     "banner": {
       "label": "",
       "semantic": "Banner, utilice dos dedos para arrastrar",
-      "semanticOrdinal": 0.0
+      "semanticOrdinal": 1.0
     },
     "search": {
       "label": "Busca comida",
       "semantic": "Ingresa nombre de comida a buscar",
-      "semanticOrdinal": 1.0
+      "semanticOrdinal": 5.0
     },
     "category_subtitle": {
       "label": "Categorías",
@@ -28,7 +28,7 @@
     "for_you": {
       "label": "Para ti",
       "semantic": "Comida seleccionada para ti",
-      "semanticOrdinal": 5.0
+      "semanticOrdinal": 0.0
     },
     "see_more": {
       "label": "Ver más",

@@ -12,6 +12,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       sortKey: const OrdinalSortKey(double.maxFinite),
+      focusable: true,
       child: BottomNavigationBar(
           backgroundColor: Colors.white,
           elevation: 15.0,

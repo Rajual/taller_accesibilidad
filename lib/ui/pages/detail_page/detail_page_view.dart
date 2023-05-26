@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:taller_accesibilidad/infraestructure/services/local_storage.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_presenter.dart';
