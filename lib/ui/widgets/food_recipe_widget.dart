@@ -25,7 +25,6 @@ class FoodRecipeWidget extends StatelessWidget {
       maxScale: 5,
       child: Semantics(
         sortKey: OrdinalSortKey(semanticOrdinal ?? double.maxFinite),
-        focused: true,
         child: Container(
           margin: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.07),
@@ -41,7 +40,6 @@ class FoodRecipeWidget extends StatelessWidget {
             children: [
               Semantics(
                 sortKey: const OrdinalSortKey(2),
-                focused: true,
                 child: Column(
                   children: [
                     LabelWidget(
@@ -68,7 +66,6 @@ class FoodRecipeWidget extends StatelessWidget {
               ///
               Semantics(
                 sortKey: const OrdinalSortKey(1),
-                focused: true,
                 child: MergeSemantics(
                   child: Column(
                     children: [

@@ -1,5 +1,16 @@
-{ 
- "banners":   [{"name":"Hamburguesa","urlPhoto":"assets/images/burger.png"},
-   {"name":"Postres", "urlPhoto":"assets/images/cake.png"},
-    {"name":"Galletas", "urlPhoto": "assets/images/cookies.png"}
-  ]} 
+{
+  "banners": [
+    {
+      "name": "Hamburguesa",
+      "urlPhoto": "assets/images/burger.png"
+    },
+    {
+      "name": "Postres",
+      "urlPhoto": "assets/images/cake.png"
+    },
+    {
+      "name": "Galletas",
+      "urlPhoto": "assets/images/cookies.png"
+    }
+  ]
+}

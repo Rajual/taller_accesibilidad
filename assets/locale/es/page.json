@@ -1,62 +1,67 @@
 {
-  "home":{
-    "title":{
-      "label":"Chef Hamburguesa",
-      "semantic":"Bienvenido a Chef Hamburguesa",
-      "semanticOrdinal":0.0
+  "home": {
+    "title": {
+      "label": "Chef Hamburguesa",
+      "semantic": "Bienvenido a Chef Hamburguesa",
+      "semanticOrdinal": 2.0
     },
-    "sub_title":{
-      "label":"Ven por tu comida",
-      "semantic":"Ven por tu comida",
-      "semanticOrdinal":1.0
+    "sub_title": {
+      "label": "Ven por tu comida",
+      "semantic": "Ven por tu comida",
+      "semanticOrdinal": 3.0
     },
-    "category_subtitle":{
-      "label":"Categorías",
-      "semantic":"Categorías de comida disponible",
-      "semanticOrdinal":2.0
+    "banner": {
+      "label": "",
+      "semantic": "Banner, utilice dos dedos para arrastrar",
+      "semanticOrdinal": 0.0
     },
-    "for_you":{
-      "label":"Para ti",
+    "search": {
+      "label": "Busca comida",
+      "semantic": "Ingresa nombre de comida a buscar",
+      "semanticOrdinal": 1.0
+    },
+    "category_subtitle": {
+      "label": "Categorías",
+      "semantic": "Categorías de comida disponible",
+      "semanticOrdinal": 4.0
+    },
+    "for_you": {
+      "label": "Para ti",
       "semantic": "Comida seleccionada para ti",
-      "semanticOrdinal":3.0
+      "semanticOrdinal": 5.0
     },
-    "see_more":{
-      "label":"Ver más",
-      "semantic":"Ver más comida",
-      "semanticOrdinal":4.0
-    },
-    "search":{
-      "label":"Busca comida",
-      "semantic":"Ingresa nombre de comida a buscar",
-      "semanticOrdinal":5.0
+    "see_more": {
+      "label": "Ver más",
+      "semantic": "Ver más comida",
+      "semanticOrdinal": 6.0
     }
   },
-  "details":{
-    "sub_title":{
-      "label":"Cocina Sana para una Salud Radiante",
-      "semantic":"Cocina sana para una salud radiante"
+  "details": {
+    "sub_title": {
+      "label": "Cocina Sana para una Salud Radiante",
+      "semantic": "Cocina sana para una salud radiante"
     },
-    "icons":{
+    "icons": {
       "time": {
-        "url_image":"assets/images/clock_icon.png",
-        "semantic":"Tiempo de cocción"
+        "url_image": "assets/images/clock_icon.png",
+        "semantic": "Tiempo de cocción"
       },
       "quantity": {
-        "url_image":"assets/images/fork_icon.png",
-        "semantic":"Cantidad de personas"
+        "url_image": "assets/images/fork_icon.png",
+        "semantic": "Cantidad de personas"
       },
       "calories": {
-        "url_image":"assets/images/bolt_icon.png",
-        "semantic":"Valor nutricional"
+        "url_image": "assets/images/bolt_icon.png",
+        "semantic": "Valor nutricional"
       }
-  },
-    "description":{
-      "label":"Descripcion",
-      "semantic":"Descripción del platillo"
     },
-    "ingredients":{
-      "label":"Ingredientes",
-      "semantic":"Ingredientes de preparación"
+    "description": {
+      "label": "Descripcion",
+      "semantic": "Descripción del platillo"
+    },
+    "ingredients": {
+      "label": "Ingredientes",
+      "semantic": "Ingredientes de preparación"
     }
   }
 }

@@ -3,27 +3,27 @@ import 'package:flutter/rendering.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 
 class LabelWidget extends StatelessWidget {
-  const LabelWidget(
-      {super.key,
-       this.item,
-      this.style,
-      this.textAlign,});
+  const LabelWidget({
+    super.key,
+    this.item,
+    this.style,
+    this.textAlign,
+  });
 
-final ItemModel? item;
+  final ItemModel? item;
   final TextStyle? style;
   final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      sortKey: OrdinalSortKey(item?.semanticOrdinal??double.maxFinite),
-      focused: item?.semanticOrdinal != null,
+      sortKey: OrdinalSortKey(item?.semanticOrdinal ?? double.maxFinite),
       label: item?.semantic ?? item?.label,
       excludeSemantics: true,
       child: Tooltip(
         message: item?.semantic ?? item?.label,
         child: Text(
-          item?.label??'',
+          item?.label ?? '',
           style: style,
           textAlign: textAlign,
         ),

@@ -19,6 +19,7 @@ class FoodDescriptionRowWidget extends StatelessWidget {
       return const SizedBox.shrink();
     }
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
@@ -29,13 +30,15 @@ class FoodDescriptionRowWidget extends StatelessWidget {
             iconSize: 0.016,
           ),
         ),
-        LabelWidget(
-          item: ItemModel(
-              semanticOrdinal: icon!.semanticOrdinal,
-              semantic: '${icon!.semantic} $nameItem',
-              label: nameItem),
-          style: const TextStyle(
-              color: Color(0xFFB6B6B6), fontSize: 12, letterSpacing: -0.31),
+        Flexible(
+          child: LabelWidget(
+            item: ItemModel(
+                semanticOrdinal: icon!.semanticOrdinal,
+                semantic: '${icon!.semantic} $nameItem',
+                label: nameItem),
+            style: const TextStyle(
+                color: Color(0xFFB6B6B6), fontSize: 12, letterSpacing: -0.31),
+          ),
         ),
       ],
     );

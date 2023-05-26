@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 
 import '../../widgets/banners_widget.dart';
-import '../../widgets/food_for_you_widget.dart';
+import '../../widgets/for_you_section_widget.dart';
 import '../../widgets/search_food_food_widget.dart';
 import '../detail_page/detail_page_view.dart';
 import '../../../config/localizations.dart';
 import 'home_page_presenter.dart';
-import '../../../domain/food/food.dart';
 import '../../widgets/custom_bottom_navigation_bar.dart';
 import '../../widgets/food_category_row_widget.dart';
 import '../../widgets/label_widget.dart';
@@ -50,14 +48,18 @@ class _HomePageState extends State<HomePage> implements View {
             LabelWidget(
               item: languaje?.subTitle,
             ),
-            SizedBox(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: BannersWidget(
-                  banners: _presenter.getBanners(),
-                  action: () => getBanners(context)),
+            Semantics(
+              sortKey: const OrdinalSortKey(0),
+              child: SizedBox(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 0.2,
+                child: BannersWidget(
+                    itemModel: languaje!.banner,
+                    banners: _presenter.getBanners(),
+                    action: () => getBanners(context)),
+              ),
             ),
-            SearchFoodFoodWidget(widget: widget),
+            SearchFoodFoodWidget(model: widget.model, search: languaje.search),
             LabelWidget(
               item: languaje?.categorySubtitle,
               style: const TextStyle(fontWeight: FontWeight.w700, height: 2.5),
@@ -89,54 +91,5 @@ class _HomePageState extends State<HomePage> implements View {
   void getBanners(BuildContext context) async {
     ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text('Banner deslizado')));
-  }
-}
-
-class ForYouSectionWidget extends StatelessWidget {
-  final ItemModel forYou;
-  final ItemModel seeMore;
-  final Future<List<Food>> foods;
-  final void Function(String)? action;
-  const ForYouSectionWidget(
-      {super.key,
-      required this.forYou,
-      required this.seeMore,
-      required this.foods,
-      this.action});
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      sortKey: OrdinalSortKey(forYou.semanticOrdinal),
-      focused: true,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              LabelWidget(
-                item: forYou,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              LabelWidget(
-                item: seeMore,
-                style: const TextStyle(color: Color(0xFFF4AA4A)),
-              ),
-            ],
-          ),
-          SizedBox(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: FoodForYouWidget(
-              action: (label) => action?.call(label),
-              foods: foods,
-            ),
-          )
-        ],
-      ),
-    );
   }
 }

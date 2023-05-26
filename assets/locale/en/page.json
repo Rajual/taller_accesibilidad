@@ -1,56 +1,67 @@
 {
   "home": {
     "title": {
-      "label": "Chef Burger",
-      "semantic": "Welcome to chef burger"
+      "label": "Chef Hamburguesa",
+      "semantic": "Bienvenido a Chef Hamburguesa",
+      "semanticOrdinal": 0.0
     },
     "sub_title": {
-      "label": "Let's grab your food!",
-      "semantic": "Let's grab the food you want"
+      "label": "Ven por tu comida",
+      "semantic": "Ven por tu comida",
+      "semanticOrdinal": 3.0
     },
-    "category_subtitle": {
-      "label": "Food Category",
-      "semantic": "Categories of available food"
-    },
-    "for_you": {
-      "label": "Food for you",
-      "semantic": "Food selected for you"
-    },
-    "see_more": {
-      "label": "See more",
-      "semantic": "See more food"
+    "banner": {
+      "label": "",
+      "semantic": "Banner, utilice dos dedos para arrastrar",
+      "semanticOrdinal": 2.0
     },
     "search": {
-      "label": "Search for food",
-      "semantic": "Type in food name to search"
+      "label": "Busca comida",
+      "semantic": "Ingresa nombre de comida a buscar",
+      "semanticOrdinal": 1.0
+    },
+    "category_subtitle": {
+      "label": "Categorías",
+      "semantic": "Categorías de comida disponible",
+      "semanticOrdinal": 4.0
+    },
+    "for_you": {
+      "label": "Para ti",
+      "semantic": "Comida seleccionada para ti",
+      "semanticOrdinal": 5.0
+    },
+    "see_more": {
+      "label": "Ver más",
+      "semantic": "Ver más comida",
+      "semanticOrdinal": 6.0
     }
   },
   "details": {
     "sub_title": {
-      "label": "Cooking Healty For Radiant Healt",
-      "semantic": "Cooking Healty For Radiant Healt"
+      "label": "Cocina Sana para una Salud Radiante",
+      "semantic": "Cocina sana para una salud radiante"
     },
     "icons": {
       "time": {
         "url_image": "assets/images/clock_icon.png",
-        "semantic": "Cook time"
+        "semantic": "Tiempo de cocción"
       },
       "quantity": {
         "url_image": "assets/images/fork_icon.png",
-        "semantic": "Quantity"
+        "semantic": "Cantidad de personas"
       },
       "calories": {
         "url_image": "assets/images/bolt_icon.png",
-        "semantic": "Calories"
+        "semantic": "Valor nutricional"
       }
     },
     "description": {
-      "label": "Description",
-      "semantic": "Dish Description"
+      "label": "Descripcion",
+      "semantic": "Descripción del platillo"
     },
     "ingredients": {
-      "label": "Ingredients",
-      "semantic": "Ingredients"
+      "label": "Ingredientes",
+      "semantic": "Ingredientes de preparación"
     }
   }
 }

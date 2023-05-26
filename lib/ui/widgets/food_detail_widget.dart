@@ -19,9 +19,9 @@ class FoodDetailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      focused: true,
       sortKey: OrdinalSortKey(semanticOrdinal),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FoodDescriptionRowWidget(
@@ -32,9 +32,11 @@ class FoodDetailWidget extends StatelessWidget {
             icon: iconsDetails?.quantity,
             nameItem: food.quantity ?? '',
           ),
-          FoodDescriptionRowWidget(
-            icon: iconsDetails?.calories,
-            nameItem: food.calories ?? '',
+          Expanded(
+            child: FoodDescriptionRowWidget(
+              icon: iconsDetails?.calories,
+              nameItem: food.calories ?? '',
+            ),
           ),
         ],
       ),

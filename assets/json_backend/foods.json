@@ -1,4 +1,5 @@
-{"foods":[
+{
+  "foods": [
     {
       "name": "Alitas picantes",
       "price": "$24.00",
@@ -19,4 +20,5 @@
       "price": "$24.00",
       "image": "assets/images/salad_main.png"
     }
-  ]}
+  ]
+}

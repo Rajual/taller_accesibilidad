@@ -17,6 +17,7 @@ class HomeUiModel {
   const HomeUiModel({
     required this.title,
     required this.subTitle,
+    required this.banner,
     required this.categorySubtitle,
     required this.forYou,
     required this.seeMore,
@@ -24,6 +25,7 @@ class HomeUiModel {
   });
   final ItemModel title;
   final ItemModel subTitle;
+  final ItemModel banner;
   final ItemModel categorySubtitle;
   final ItemModel forYou;
   final ItemModel seeMore;
@@ -31,13 +33,13 @@ class HomeUiModel {
 
   factory HomeUiModel.fromMap(Map<String, dynamic> json) {
     return HomeUiModel(
-      title: ItemModel.fromMap(json['title'] ?? ''),
-      subTitle: ItemModel.fromMap(json['sub_title'] ?? ''),
-      categorySubtitle: ItemModel.fromMap(json['category_subtitle'] ?? ''),
-      forYou: ItemModel.fromMap(json['for_you'] ?? ''),
-      seeMore: ItemModel.fromMap(json['see_more'] ?? ''),
-      search: ItemModel.fromMap(json['search'] ?? ''),
-    );
+        title: ItemModel.fromMap(json['title'] ?? ''),
+        subTitle: ItemModel.fromMap(json['sub_title'] ?? ''),
+        categorySubtitle: ItemModel.fromMap(json['category_subtitle'] ?? ''),
+        forYou: ItemModel.fromMap(json['for_you'] ?? ''),
+        seeMore: ItemModel.fromMap(json['see_more'] ?? ''),
+        search: ItemModel.fromMap(json['search'] ?? ''),
+        banner: ItemModel.fromMap(json['banner'] ?? ''));
   }
 }
 
