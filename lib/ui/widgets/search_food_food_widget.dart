@@ -12,7 +12,7 @@ class SearchFoodFoodWidget extends StatelessWidget {
   });
 
   final ItemModel? search;
-  final Model? model;
+  final ModelInterface? model;
 
   @override
   Widget build(BuildContext context) {

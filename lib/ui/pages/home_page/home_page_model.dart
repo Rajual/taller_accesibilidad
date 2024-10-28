@@ -6,7 +6,7 @@ import 'package:taller_accesibilidad/ui/pages/home_page/interfaces.dart';
 import '../../../domain/banner/banner_gateway.dart';
 import '../../../domain/food/food_gateway.dart';
 
-class HomePageModel implements Model {
+class HomePageModel implements ModelInterface {
   HomePageModel({required this.foodGateway, required this.bannerGateway});
   final FoodGateway foodGateway;
   final BannerGateway bannerGateway;

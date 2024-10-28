@@ -1,14 +1,14 @@
 import 'package:taller_accesibilidad/domain/food/food.dart';
 
-abstract class View {
+abstract class ViewInterface {
   void showDetail(Food detailFood);
   // void showFoodFavorite(List<Widget> food);
 }
 
-abstract class Presenter {
+abstract class PresenterInterface {
   Future<Food> initDetailFood(String foodName);
 }
 
-abstract class Model {
+abstract class ModelInterface {
   Future<Food> getDetailFood(String foodName);
 }

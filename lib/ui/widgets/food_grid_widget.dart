@@ -57,7 +57,7 @@ class FoodGridWidget extends StatelessWidget {
                       ],
                     ),
                     const CustomItemIcon(
-                      iconSize: 0.022,
+                      iconSize: 0.01,
                       imageAssetIcon: 'assets/images/carrito.png',
                       backgroundItemColor: Color(0xFFF4AA4A),
                     ),

@@ -13,16 +13,16 @@ import '../../widgets/label_widget.dart';
 import 'interfaces.dart';
 
 class HomePage extends StatefulWidget {
-  final Model model;
+  final ModelInterface model;
   const HomePage({super.key, required this.model});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> implements View {
+class _HomePageState extends State<HomePage> implements ViewInterface {
   late final Widget myfoods;
-  late final Presenter _presenter;
+  late final PresenterInterface _presenter;
   @override
   void initState() {
     super.initState();
