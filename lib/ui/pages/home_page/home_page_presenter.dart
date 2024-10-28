@@ -3,9 +3,9 @@ import 'package:taller_accesibilidad/ui/pages/home_page/interfaces.dart';
 
 import '../../../domain/food/food.dart';
 
-class HomePagePresenter implements Presenter {
-  HomePagePresenter({required Model model}) : _model = model;
-  final Model _model;
+class HomePagePresenter implements PresenterInterface {
+  HomePagePresenter({required ModelInterface model}) : _model = model;
+  final ModelInterface _model;
   @override
   Future<List<Food>> getFoodForYou() async {
     final List<Food> foods = [];

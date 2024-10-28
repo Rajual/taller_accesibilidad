@@ -21,7 +21,8 @@ class DetailPageView extends StatefulWidget {
   State<DetailPageView> createState() => _DetailPageViewState();
 }
 
-class _DetailPageViewState extends State<DetailPageView> implements View {
+class _DetailPageViewState extends State<DetailPageView>
+    implements ViewInterface {
   late DetailPagePresenter pagePresenter;
   late List<Widget> foodFavorite;
   late Food currentFood;
