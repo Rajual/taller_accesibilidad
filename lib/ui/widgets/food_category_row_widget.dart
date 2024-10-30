@@ -11,11 +11,11 @@ class FoodCategoryRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
-          children: const [
+          children: [
             CustomItemIcon(
               imageAssetIcon: 'assets/images/main.png',
               iconSize: 0.05,
@@ -26,7 +26,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
           ],
         ),
         Column(
-          children: const [
+          children: [
             CustomItemIcon(
               imageAssetIcon: 'assets/images/salad.png',
               iconSize: 0.05,
@@ -37,7 +37,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
           ],
         ),
         Column(
-          children: const [
+          children: [
             CustomItemIcon(
               imageAssetIcon: 'assets/images/appetizer.png',
               iconSize: 0.05,
@@ -48,7 +48,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
           ],
         ),
         Column(
-          children: const [
+          children: [
             CustomItemIcon(
               imageAssetIcon: 'assets/images/drinks.png',
               iconSize: 0.05,
@@ -59,7 +59,7 @@ class FoodCategoryRowWidget extends StatelessWidget {
           ],
         ),
         Column(
-          children: const [
+          children: [
             CustomItemIcon(
               imageAssetIcon: 'assets/images/dessert.png',
               iconSize: 0.05,

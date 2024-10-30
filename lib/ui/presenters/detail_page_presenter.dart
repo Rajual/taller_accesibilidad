@@ -1,18 +1,18 @@
+import 'package:taller_accesibilidad/domain/food/usecase/food_usecase.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
 
-import '../../../domain/food/food.dart';
+import '../../domain/food/food.dart';
 
-class DetailPagePresenter implements PresenterInterface {
+class DetailPagePresenter {
   DetailPagePresenter({
-    required this.model,
+    required this.usecase,
     required this.view,
   });
-  final ModelInterface model;
+  final FoodUsecase usecase;
   final ViewInterface view;
 
-  @override
   Future<Food> initDetailFood(String foodName) async {
-    final Food currentFood = await model.getDetailFood(foodName);
+    final Food currentFood = await usecase.getDetailFood(foodName);
     view.showDetail(currentFood);
     return currentFood;
   }
