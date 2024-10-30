@@ -4,14 +4,14 @@ import 'package:taller_accesibilidad/infraestructure/services/local_storage.dart
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 import 'package:taller_accesibilidad/ui/presenters/detail_page_presenter.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
-import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
+import 'package:taller_accesibilidad/ui/widgets/atoms/label_widget.dart';
 
 import '../../../config/localizations.dart';
 import '../../../domain/food/food.dart';
 import '../../../domain/food/usecase/food_usecase.dart';
 import '../../../infraestructure/repositories/food/food_local_repository.dart';
-import '../../widgets/food_detail_widget.dart';
-import '../../widgets/food_recipe_widget.dart';
+import '../../widgets/organisms/food_detail_widget.dart';
+import '../../widgets/molecules/food_recipe_widget.dart';
 
 class DetailPageView extends StatefulWidget {
   const DetailPageView(

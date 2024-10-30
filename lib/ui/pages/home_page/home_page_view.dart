@@ -6,15 +6,15 @@ import 'package:taller_accesibilidad/ui/interfaces/home_page_interface.dart';
 import '../../../domain/banner/usecase/banner_usecase.dart';
 import '../../../infraestructure/repositories/food/food_local_repository.dart';
 import '../../../infraestructure/services/local_storage.dart';
-import '../../widgets/banners_widget.dart';
-import '../../widgets/for_you_section_widget.dart';
-import '../../widgets/search_food_food_widget.dart';
+import '../../widgets/molecules/banners_widget.dart';
+import '../../widgets/organisms/for_you_section_widget.dart';
+import '../../widgets/molecules/search_food_food_widget.dart';
 import '../detail_page/detail_page_view.dart';
 import '../../../config/localizations.dart';
 import '../../presenters/home_page_presenter.dart';
-import '../../widgets/custom_bottom_navigation_bar.dart';
-import '../../widgets/food_category_row_widget.dart';
-import '../../widgets/label_widget.dart';
+import '../../widgets/organisms/custom_bottom_navigation_bar.dart';
+import '../../widgets/organisms/food_category_row_widget.dart';
+import '../../widgets/atoms/label_widget.dart';
 
 class HomePage extends StatefulWidget {
   final BannerUsecase bannerUsecase;

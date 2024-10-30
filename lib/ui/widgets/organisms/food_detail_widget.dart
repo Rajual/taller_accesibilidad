@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import '../../domain/food/food.dart';
-import '../models/locale_model.dart';
-import 'food_description_row_widget.dart';
+import '../../../domain/food/food.dart';
+import '../../models/locale_model.dart';
+import '../molecules/food_description_row_widget.dart';
 
 class FoodDetailWidget extends StatelessWidget {
   const FoodDetailWidget(

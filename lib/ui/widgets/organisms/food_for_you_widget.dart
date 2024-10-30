@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/food/food.dart';
+import '../../../domain/food/food.dart';
 import 'food_grid_widget.dart';
 
 class FoodForYouWidget extends StatelessWidget {
