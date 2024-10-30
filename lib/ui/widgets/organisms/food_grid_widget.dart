@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/food/food.dart';
-import 'custom_item_icon.dart';
+import '../../../domain/food/food.dart';
+import '../atoms/custom_item_icon.dart';
 
 class FoodGridWidget extends StatelessWidget {
   const FoodGridWidget(

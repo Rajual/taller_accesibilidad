@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/food/food.dart';
-import '../models/locale_model.dart';
-import 'label_widget.dart';
+import '../../../domain/food/food.dart';
+import '../../models/locale_model.dart';
+import '../atoms/label_widget.dart';
 
 class FoodRecipeWidget extends StatelessWidget {
   const FoodRecipeWidget({

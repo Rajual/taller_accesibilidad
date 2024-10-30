@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
-import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
+import 'package:taller_accesibilidad/ui/widgets/atoms/label_widget.dart';
 
-import 'custom_item_icon.dart';
+import '../atoms/custom_item_icon.dart';
 
 class FoodCategoryRowWidget extends StatelessWidget {
   const FoodCategoryRowWidget({

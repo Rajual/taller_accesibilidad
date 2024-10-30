@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/locale_model.dart';
+import '../../models/locale_model.dart';
 
 class SearchFoodFoodWidget extends StatelessWidget {
   const SearchFoodFoodWidget({

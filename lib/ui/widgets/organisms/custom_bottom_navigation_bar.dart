@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'custom_item_icon.dart';
+import '../atoms/custom_item_icon.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
 
-import '../../domain/banner/banner.dart';
-import 'dot_indicator_widget.dart';
+import '../../../domain/banner/banner.dart';
+import '../atoms/dot_indicator_widget.dart';
 
 class BannersWidget extends StatefulWidget {
   const BannersWidget(

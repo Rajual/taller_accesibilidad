@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/food/food.dart';
-import '../models/locale_model.dart';
+import '../../../domain/food/food.dart';
+import '../../models/locale_model.dart';
 import 'food_for_you_widget.dart';
-import 'label_widget.dart';
+import '../atoms/label_widget.dart';
 
 class ForYouSectionWidget extends StatelessWidget {
   final ItemModel forYou;
