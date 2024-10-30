@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:taller_accesibilidad/infraestructure/services/local_storage.dart';
 import 'package:taller_accesibilidad/ui/models/locale_model.dart';
-import 'package:taller_accesibilidad/ui/pages/detail_page/detail_page_presenter.dart';
+import 'package:taller_accesibilidad/ui/presenters/detail_page_presenter.dart';
 import 'package:taller_accesibilidad/ui/pages/detail_page/interfaces.dart';
 import 'package:taller_accesibilidad/ui/widgets/label_widget.dart';
 
 import '../../../config/localizations.dart';
 import '../../../domain/food/food.dart';
+import '../../../domain/food/usecase/food_usecase.dart';
 import '../../../infraestructure/repositories/food/food_local_repository.dart';
 import '../../widgets/food_detail_widget.dart';
 import '../../widgets/food_recipe_widget.dart';
-import 'detail_page_model.dart';
 
 class DetailPageView extends StatefulWidget {
-  const DetailPageView({required this.foodName, super.key});
+  const DetailPageView(
+      {required this.foodUsecase, required this.foodName, super.key});
   final String foodName;
+  final FoodUsecase foodUsecase;
 
   @override
   State<DetailPageView> createState() => _DetailPageViewState();
@@ -30,13 +32,8 @@ class _DetailPageViewState extends State<DetailPageView>
   @override
   void initState() {
     super.initState();
-    pagePresenter = DetailPagePresenter(
-        model: DetailPageModel(
-          foodGateway: FoodLocalRepository(
-            LocalStorage(),
-          ),
-        ),
-        view: this);
+    pagePresenter =
+        DetailPagePresenter(usecase: widget.foodUsecase, view: this);
   }
 
   @override

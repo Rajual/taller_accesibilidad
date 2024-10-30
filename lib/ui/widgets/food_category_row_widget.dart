@@ -16,8 +16,8 @@ class FoodCategoryRowWidget extends StatelessWidget {
       children: [
         Semantics(
           focusable: false,
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               CustomItemIcon(
                 imageAssetIcon: 'assets/images/main.png',
                 iconSize: 0.05,
@@ -30,8 +30,8 @@ class FoodCategoryRowWidget extends StatelessWidget {
         ),
         Semantics(
           focusable: true,
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               CustomItemIcon(
                 imageAssetIcon: 'assets/images/salad.png',
                 iconSize: 0.05,
@@ -44,8 +44,8 @@ class FoodCategoryRowWidget extends StatelessWidget {
         ),
         Semantics(
           focusable: true,
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               CustomItemIcon(
                 imageAssetIcon: 'assets/images/appetizer.png',
                 iconSize: 0.05,
@@ -58,8 +58,8 @@ class FoodCategoryRowWidget extends StatelessWidget {
         ),
         Semantics(
           focusable: true,
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               CustomItemIcon(
                 imageAssetIcon: 'assets/images/drinks.png',
                 iconSize: 0.05,
@@ -72,8 +72,8 @@ class FoodCategoryRowWidget extends StatelessWidget {
         ),
         Semantics(
           focusable: true,
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               CustomItemIcon(
                 imageAssetIcon: 'assets/images/dessert.png',
                 iconSize: 0.05,

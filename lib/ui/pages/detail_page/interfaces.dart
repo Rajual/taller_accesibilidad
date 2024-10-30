@@ -2,7 +2,6 @@ import 'package:taller_accesibilidad/domain/food/food.dart';
 
 abstract class ViewInterface {
   void showDetail(Food detailFood);
-  // void showFoodFavorite(List<Widget> food);
 }
 
 abstract class PresenterInterface {
